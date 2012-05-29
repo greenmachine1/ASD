@@ -45,7 +45,28 @@ for (var j = 0; j < bandType.length; j++)
 // page.  Problem I am having is that I have to manually search
 // through my json data for each bname
 
-for(var i = 0; i < 20; i++)
+for(var key in json)
+{
+	var getBandListEle = document.getElementById("bandSearch");
+	var setBandListLi = document.createElement("li");
+	getBandListEle.appendChild(setBandListLi);
+	
+// The problem lies with bandInfo1.  In order for this to work
+// I have to cycle through each iteration of bandInfo's
+// exe. bandInfo1.bname, bandInfo2.bname, bandInfo3.bname	
+	var bandInfo = document.createTextNode(json[key].bname[1]);
+	
+	setBandListLi.appendChild(bandInfo);
+}
+
+/*for(var key in json)
+{
+	alert("key: " + key + ", value: " + json[key].bname[1]);
+}
+
+*/
+
+/*for(var i = 0; i < 20; i++)
 {
 	var getBandListEle = document.getElementById("bandSearch");
 	var setBandListLi = document.createElement("li");
@@ -59,9 +80,10 @@ for(var i = 0; i < 20; i++)
 	setBandListLi.appendChild(bandInfo);
 }
 
-
-
-
+for(var key in json)
+{
+	alert("key: " + key + ", value: " + json[key].bname[1]);
+} */
 
 
 
