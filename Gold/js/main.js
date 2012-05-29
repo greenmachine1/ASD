@@ -15,77 +15,21 @@ for(var i = 0; i < bandType.length; i++)
 	
 }
 
-// searching for the id of bandsearch for the individual list items
-// this works for populating the search for bands page with the 
-// static array.  Will work on getting it to work with my JSON data
-// at a later time.
-/*var bandSearch = document.getElementById("bandSearch");
-
-for (var j = 0; j < bandType.length; j++)
-{
-	var getLIBand = document.createElement("li");
-	bandSearch.appendChild(getLIBand);
-	
-	var newText = document.createTextNode(bandType[j]);
-	getLIBand.appendChild(newText);
-}
-*/
-// dont actually need this section at the moment
-// I do not need to stringify the json data just yet
-	var stringifiedJson = JSON.stringify(json);
-	console.log(stringifiedJson);
-	
-// this will turn the stringified version of the json data
-// back into an object.  Like above, I dont really need this
-// just yet	
-	var parsedJson = JSON.parse(stringifiedJson);
-	console.log(parsedJson);
-
-// this will (hopefully) dynamically populate the search local bands
-// page.  Problem I am having is that I have to manually search
-// through my json data for each bname
-
+// this actually works now in dynamically pulling my json file and 
+// populating the search band page
 for(var key in json)
 {
 	var getBandListEle = document.getElementById("bandSearch");
 	var setBandListLi = document.createElement("li");
 	getBandListEle.appendChild(setBandListLi);
 	
-// The problem lies with bandInfo1.  In order for this to work
-// I have to cycle through each iteration of bandInfo's
-// exe. bandInfo1.bname, bandInfo2.bname, bandInfo3.bname	
+// so this works now in dynamically populating the search bands page!
+// using the json[key].bname[1], I can pull the value in each bname
+// and insert it into the page! Super exciting!
 	var bandInfo = document.createTextNode(json[key].bname[1]);
 	
 	setBandListLi.appendChild(bandInfo);
 }
-
-/*for(var key in json)
-{
-	alert("key: " + key + ", value: " + json[key].bname[1]);
-}
-
-*/
-
-/*for(var i = 0; i < 20; i++)
-{
-	var getBandListEle = document.getElementById("bandSearch");
-	var setBandListLi = document.createElement("li");
-	getBandListEle.appendChild(setBandListLi);
-	
-// The problem lies with bandInfo1.  In order for this to work
-// I have to cycle through each iteration of bandInfo's
-// exe. bandInfo1.bname, bandInfo2.bname, bandInfo3.bname	
-	var bandInfo = document.createTextNode(json.bandInfo2.bname[1]);
-	
-	setBandListLi.appendChild(bandInfo);
-}
-
-for(var key in json)
-{
-	alert("key: " + key + ", value: " + json[key].bname[1]);
-} */
-
-
 
 
 
