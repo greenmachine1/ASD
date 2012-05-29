@@ -54,7 +54,7 @@ for(var i = 0; i < 20; i++)
 // The problem lies with bandInfo1.  In order for this to work
 // I have to cycle through each iteration of bandInfo's
 // exe. bandInfo1.bname, bandInfo2.bname, bandInfo3.bname	
-	var bandInfo = document.createTextNode(json.bandInfo1.bname[1]);
+	var bandInfo = document.createTextNode(json.bandInfo2.bname[1]);
 	
 	setBandListLi.appendChild(bandInfo);
 }
