@@ -1,0 +1,92 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<!-- declaring meta tags -->
+	<meta charset="utf-8" />
+	<meta name="description" content="Gig making" />
+	<meta name="keywords" content="music, gigs, venue, musicians, bands" />
+	<!-- allows the search engine robots to index the page-->
+	<meta name="robots" content="index, follow" />
+	<!--allows content to be sized correctly on iphone display -->
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<!-- document title -->
+	<title>Welcome to Gigbag!</title>
+	<link href="css/form.css" rel="stylesheet" />
+</head>
+	<!-- body -->
+	<body>
+		<!--Header Tags -->
+		<h1>Create a gig!</h1>
+		<a href="index.html" id="home">Go back home</a>
+
+		<!-- form action used to submit to either local or server storage-->
+		<!-- method sends data behind the scenes or through the URL, post is secure-->
+		<form action="#" method="post" id="bandInfo">
+		<!-- broken our grouping of questions using the <fieldset> tag -->
+		<div id="general">
+			<fieldset>
+			<!-- legends are required for each fieldset, they are indicators for the grouping as to what is going to be held-->
+			<!--<legend>Personal Information</legend> -->
+				<ul id="errors"></ul>
+				<ul>
+					<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
+					<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
+					<li><label for="email">Your email please:</label><input type="text" id="email" /></li>
+				</ul>
+			</fieldset>
+		</div>	
+		<!-- used as a drop down menu for entering the type of music your band is-->
+		<div>	
+				
+			<fieldset>
+				<!--<legend>About your band</legend> -->
+				<ul id="item">			
+					<li id="select"><label for="groups">My band</label></li>
+					<li>
+					<!-- used to enter in a date requested to play-->
+						<label for="startdate">Please enter the date you would like to play: </label>	
+						<input type="date" min="2012-02-31" max="2012-12-31" id="startdate" name="startdate"
+						required aria-required="true" placeholder="2012-05-18">
+					
+						<!-- adding check boxes for members in the band-->
+						<li>Instruments in the band</li>
+							<ul>
+								<li><input type="checkbox" checked value="yes" id="guitar1" /><label for="guitar">1 Guitar</label></li>
+								<li><input type="checkbox" value="yes" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
+								<li><input type="checkbox" value="yes" id="bass" /><label for="bass">Bass</label></li>
+								<li><input type="checkbox" value="yes" id="drums" /><label for="drums">Drums</label></li>
+								<li><input type="checkbox" value="yes" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
+								<li><input type="checkbox" value="yes" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
+								<li><input type="checkbox" value="yes" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
+								<li><input type="checkbox" value="yes" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
+								<li><input type="checkbox" value="yes" id="other" /><label for="other">Other</label></li>
+							</ul>
+							
+						<!-- text area used as an input to tell us what other instruments are involved-->
+						<li>If you answered other, please tell us what other instruments are involved</li>
+							<label for="other1"></label><textarea id="other1"></textarea>
+						<li><input type="hidden" value="true" id="otherInfo"/></li>
+						<!-- input slider for how many tickets you would need for your show-->
+						<li>
+							<label for="tickets">How many tickets will you need? (1 to 50):</label>
+							<input type="range" min="1" max="50" name="tickets" id="tickets" >
+					</li>	
+				</ul>
+			</fieldset>	
+		</div>
+		<nav>
+			<!-- added submit and reset buttons-->
+			<ul>
+				<a href='#' id='submit'>Submit Data</a>
+				<a href='#' id="reset">Reset Data</a>
+				<a href='#' id="dispInfo">Display Data</a>
+				<a href="index.html" id="home">Go back home</a>
+				<a href="index.html" id="addNew" style="display:none";">Add new Item</a>
+			</ul>			
+		</nav>
+	</form>	
+	<!-- linking my .js file with my main html -->
+	<script src="js/json.js"></script>	
+	<script src="js/main.js"></script>	
+	</body>
+</html>
