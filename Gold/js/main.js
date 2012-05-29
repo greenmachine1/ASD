@@ -42,11 +42,7 @@ for(var key in json)
 	
 	setBandListLi.appendChild(bandInfo);
 }
-
-
-
-	
-												
+		
 	var	instrument1Value = "no",
 		instrument2Value = "no",
 		instrument3Value = "no",
@@ -181,7 +177,7 @@ function toggleControls(n)
 			item.bname 			= ["Band Name:", getE('bname').value];
 			item.email			= ["Email Address:", getE('email').value];
 			item.groups 		= ["Genre:", getE('groups').value];
-		//	item.startdate		= ["Date Requesting: ", getE('startdate').value];
+			item.startdate		= ["Date Requesting: ", getE('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -514,20 +510,5 @@ function toggleControls(n)
 	var clear = getE('reset');
 	clear.addEventListener("click", clearLocal);
 });
-
-
-
-/*<ul data-role="listview" data-filter="true" data-filter-palceholder="Search by Genre">
-				<li><a href="#"><img src='pics/classical.png'/>Classical</a></li>
-				<li><a href="#"><img src='pics/country.png'/>Country</a></li>
-				<li><a href="#"><img src='pics/jazz.png'/>Jazz</a></li>
-				<li><a href="#"><img src='pics/kids.png'/>Kids</a></li>
-				<li><a href="#"><img src='pics/metal.png'/>Metal</a></li>
-				<li><a href="#"><img src='pics/other.png'/>Other</a></li>
-				<li><a href="#"><img src='pics/rap.png'/>Rap</a></li>
-				<li><a href="#"><img src='pics/rock.png'/>Rock</a></li>
-			</ul> 
-			
-			*/
 
 
