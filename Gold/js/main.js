@@ -1,9 +1,21 @@
+// this is the main java script file for the web-app
+// Author: Cory Green
+// Date: 03/18/2012
+// project: Mobile interfaces
 
-
+//waiting until the DOM is ready
+window.addEventListener("DOMContentLoaded", function()
+{
+	function getE(x)
+	{
+		var theElement = document.getElementById(x);
+		return theElement;
+	}
+	
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
-var myElement = document.getElementById("groups");
+var myElement = getE("groups");
 
 for(var i = 0; i < bandType.length; i++)
 {
@@ -14,12 +26,12 @@ for(var i = 0; i < bandType.length; i++)
 	myNewElement.appendChild(myText);
 	
 }
-
+	
 // this actually works now in dynamically pulling my json file and 
 // populating the search band page
 for(var key in json)
 {
-	var getBandListEle = document.getElementById("bandSearch");
+	var getBandListEle = getE("bandSearch");
 	var setBandListLi = document.createElement("li");
 	getBandListEle.appendChild(setBandListLi);
 	
@@ -33,49 +45,6 @@ for(var key in json)
 
 
 
-
-
-
-
-
-
-
-
-// this is the main java script file for the web-app
-// Author: Cory Green
-// Date: 03/18/2012
-// project: Mobile interfaces
-
-//waiting until the DOM is ready
-/*window.addEventListener("DOMContentLoaded", function()
-{
-	function getE(x)
-	{
-		var theElement = document.getElementById(x);
-		return theElement;
-	}
-
-/*	//create select field elements and populate with elements
-	function makeCatagory()
-	{
-		var formTag = document.getElementsByTagName("form"),
-			selectLi = getE('select'),
-			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "groups");
-		for(var i = 0, j = bandType.length; i < j; i++)
-		{
-			var makeOption = document.createElement('option');
-			var optText = bandType[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
-		}
-		selectLi.appendChild(makeSelect);
-		
-	} 
-	// variable defaults
-//	var bandType = ["--choose a genre--","rock", "metal", "country", "classical", "rap", 
-//					"kids", "jazz", "other"];
 	
 												
 	var	instrument1Value = "no",
