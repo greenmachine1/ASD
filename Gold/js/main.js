@@ -188,8 +188,8 @@ function toggleControls(n)
 			item.instrument8	= ["3 backup vocals", instrument8Value];
 			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-		//	item.other1			= ["Other Info:", getE('other1').value];
-		//	item.tickets		= ["Tickets Wanted", getE('tickets').value];
+			item.other1			= ["Other Info:", getE('other1').value];
+			item.tickets		= ["Tickets Wanted", getE('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
