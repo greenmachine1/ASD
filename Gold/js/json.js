@@ -1,7 +1,7 @@
 var json = {
 	"bandInfo1": {
 		"fname": ["fname:", "Jon"],
-		"bname": ["Band Name:", "Slayer"],
+		"bname": ["Band Name:", "Dragos"],
 		"groups": ["Genre:", "rock"],
 		"email": ["Email:", "your@email.com"],
 		"startdate": ["Date requesting:", "2012-12-10"],
