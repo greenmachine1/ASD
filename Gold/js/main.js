@@ -4,8 +4,7 @@
 // project: Mobile interfaces
 
 //waiting until the DOM is ready
-window.addEventListener("DOMContentLoaded", function()
-{
+$(function(){
 	function getE(x)
 	{
 		var theElement = document.getElementById(x);
@@ -230,7 +229,7 @@ function toggleControls(n)
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubli.innerHTML = optSubText;
+				$('makeSubli').html(optSubText); // makeSubli.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
