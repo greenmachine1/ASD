@@ -15,12 +15,12 @@ $(function(){
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
-var myElement = getE("groups");
+var myElement = $('#groups');
 
 for(var i = 0; i < bandType.length; i++)
 {
 	var myNewElement = document.createElement("option");
-	myElement.appendChild(myNewElement);
+	myElement.append(myNewElement);
 	
 	var myText = document.createTextNode(bandType[i]);
 	myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
@@ -56,78 +56,79 @@ for(var key in json)
 		instrument8Value = "no",
 		instrument9Value = "no"; 
 		
-	var errMsg = getE('errors');	
+	var errMsg = $('#errors');	
 		
-// find value of selected buttons
+// find value of selected buttons\
+// changed all of my getE for my instrument return values to a $
 function getCheckBoxValue()
 {
-	if(getE('inst1').checked)
+	if($('#inst1').checked)
 	{
-		instrument1Value = getE('inst1').value;
+		instrument1Value = $('#inst1').value;
 	}
 	else
 	{
 		instrument1Value = "No";
 	}
-	if(getE('inst2').checked)
+	if($('#inst2').checked)
 	{
-		instrument2Value = getE('inst2').value;
+		instrument2Value = $('#inst2').value;
 	}
 	else
 	{
 		instrument2Value = "No";
 	}
-	if(getE('inst3').checked)
+	if($('#inst3').checked)
 	{
-		instrument3Value = getE('inst3').value;
+		instrument3Value = $('#inst3').value;
 	}
 	else
 	{
 		instrument3Value = "No";
 	}
-	if(getE('inst4').checked)
+	if($('#inst4').checked)
 	{
-		instrument4Value = getE('inst4').value;
+		instrument4Value = $('#inst4').value;
 	}
 	else
 	{
 		instrument4Value = "No";
 	}
-	if(getE('inst5').checked)
+	if($('#inst5').checked)
 	{
-		instrument5Value = getE('inst5').value;
+		instrument5Value = $('#inst5').value;
 	}
 	else
 	{
 		instrument5Value = "No";
 	}
-	if(getE('inst6').checked)
+	if($('#inst6').checked)
 	{
-		instrument6Value = getE('inst6').value;
+		instrument6Value = $('#inst6').value;
 	}
 	else
 	{
 		instrument6Value = "No";
 	}
-	if(getE('inst7').checked)
+	if($('#inst7').checked)
 	{
-		instrument7Value = getE('inst7').value;
+		instrument7Value = $('#inst7').value;
 	}
 	else
 	{
 		instrument7Value = "No";
 	}
-	if(getE('inst8').checked)
+	if($('#inst8').checked)
 	{
-		instrument8Value = getE('inst8').value;
+		instrument8Value = $('#inst8').value;
 	}
 	else
 	{
 		instrument8Value = "No";
 	}
-	if(getE('inst9').checked)
+	if($('#inst9').checked)
 	{
-		instrument9Value = getE('inst9').value;
+		instrument9Value = $('#inst9').value;
 	}
 	else
 	{
@@ -303,78 +304,78 @@ function toggleControls(n)
 		getE('email').value = item.email[1];
 		getE('groups').value = item.groups[1];
 		getE('startdate').value = item.startdate[1];
-			if(getE('inst1').checked)
-			{
-				instrument1Value = getE('inst1').value;
-			}
-			else
-			{
-				instrument1Value = "No";
-			}
-			if(getE('inst2').checked)
-			{
-				instrument2Value = getE('inst2').value;
-			}
-			else
-			{
-				instrument2Value = "No";
-			}
-			if(getE('inst3').checked)
-			{
-				instrument3Value = getE('inst3').value;
-			}
-			else
-			{
-				instrument3Value = "No";
-			}
-			if(getE('inst4').checked)
-			{
-				instrument4Value = getE('inst4').value;
-			}
-			else
-			{
-				instrument4Value = "No";
-			}
-			if(getE('inst5').checked)
-			{
-				instrument5Value = getE('inst5').value;
-			}
-			else
-			{
-				instrument5Value = "No";
-			}
-			if(getE('inst6').checked)
-			{
-				instrument6Value = getE('inst6').value;
-			}
-			else
-			{
-				instrument6Value = "No";
-			}
-			if(getE('inst7').checked)
-			{
-				instrument7Value = getE('inst7').value;
-			}
-			else
-			{
-				instrument7Value = "No";
-			}
-			if(getE('inst8').checked)
-			{
-				instrument8Value = getE('inst8').value;
-			}
-			else
-			{
-				instrument8Value = "No";
-			}
-			if(getE('inst9').checked)
-			{
-				instrument9Value = getE('inst9').value;
-			}
-			else
-			{
-				instrument9Value = "No";
-			} 	
+	if($('#inst1').checked)
+	{
+		instrument1Value = $('#inst1').value;
+	}
+	else
+	{
+		instrument1Value = "No";
+	}
+	if($('#inst2').checked)
+	{
+		instrument2Value = $('#inst2').value;
+	}
+	else
+	{
+		instrument2Value = "No";
+	}
+	if($('#inst3').checked)
+	{
+		instrument3Value = $('#inst3').value;
+	}
+	else
+	{
+		instrument3Value = "No";
+	}
+	if($('#inst4').checked)
+	{
+		instrument4Value = $('#inst4').value;
+	}
+	else
+	{
+		instrument4Value = "No";
+	}
+	if($('#inst5').checked)
+	{
+		instrument5Value = $('#inst5').value;
+	}
+	else
+	{
+		instrument5Value = "No";
+	}
+	if($('#inst6').checked)
+	{
+		instrument6Value = $('#inst6').value;
+	}
+	else
+	{
+		instrument6Value = "No";
+	}
+	if($('#inst7').checked)
+	{
+		instrument7Value = $('#inst7').value;
+	}
+	else
+	{
+		instrument7Value = "No";
+	}
+	if($('#inst8').checked)
+	{
+		instrument8Value = $('#inst8').value;
+	}
+	else
+	{
+		instrument8Value = "No";
+	}
+	if($('#inst9').checked)
+	{
+		instrument9Value = $('#inst9').value;
+	}
+	else
+	{
+		instrument9Value = "No";
+	} 
 		
 		getE('other1').value = item.other1[1];
 		getE('tickets').value = item.tickets[1];
@@ -482,7 +483,7 @@ function toggleControls(n)
 			{	
 				var txt = document.createElement('li');
 				$('txt').html(messageArry[i]);     // txt.innerHTML = messageArry[i];
-				errMsg.appendChild(txt);
+				errMsg.append(txt);
 			}
 			e.preventDefault();
 			return false;
