@@ -15,12 +15,7 @@ $(function(){
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
-for (var i = 0; i < bandType.length; i++){
-	var thingy = $('#groups').append('<option>');
-}
-
-
-/*var myElement = getE("groups");
+var myElement = getE("groups");
 
 for(var i = 0; i < bandType.length; i++)
 {
@@ -32,16 +27,16 @@ for(var i = 0; i < bandType.length; i++)
 	
 } 
 
-*/
+
 	
 // this actually works now in dynamically pulling my json file and 
 // populating the search band page
 for(var key in json)
 {
-	var getBandListEle = getE("bandSearch");  //getE("bandSearch");
+	var getBandListEle = $('#bandSearch');  //getE("bandSearch");
 	var setBandListLi = document.createElement("li");
 	
-	getBandListEle.appendChild(setBandListLi);
+	getBandListEle.append(setBandListLi);  // getBandListEle.appendChild(setBandListLi);
 	
 // so this works now in dynamically populating the search bands page!
 // using the json[key].bname[1], I can pull the value in each bname
