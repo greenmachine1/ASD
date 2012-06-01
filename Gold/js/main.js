@@ -1,9 +1,10 @@
 // this is the main java script file for the web-app
 // Author: Cory Green
-// Date: 03/18/2012
-// project: Mobile interfaces
+// Date: 05/30/2012
+// project: ASD
 
 //waiting until the DOM is ready
+// this beginning function has been modified to fit the jquery version
 $(function(){
 	function getE(x)
 	{
@@ -14,7 +15,12 @@ $(function(){
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
-var myElement = getE("groups");
+for (var i = 0; i < bandType.length; i++){
+	var thingy = $('#groups').append('<option>');
+}
+
+
+/*var myElement = getE("groups");
 
 for(var i = 0; i < bandType.length; i++)
 {
@@ -22,16 +28,19 @@ for(var i = 0; i < bandType.length; i++)
 	myElement.appendChild(myNewElement);
 	
 	var myText = document.createTextNode(bandType[i]);
-	myNewElement.appendChild(myText);
+	myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
 	
-}
+} 
+
+*/
 	
 // this actually works now in dynamically pulling my json file and 
 // populating the search band page
 for(var key in json)
 {
-	var getBandListEle = getE("bandSearch");
+	var getBandListEle = getE("bandSearch");  //getE("bandSearch");
 	var setBandListLi = document.createElement("li");
+	
 	getBandListEle.appendChild(setBandListLi);
 	
 // so this works now in dynamically populating the search bands page!
@@ -229,7 +238,7 @@ function toggleControls(n)
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				$('makeSubli').html(optSubText); // makeSubli.innerHTML = optSubText;
+				$('makeSubli').html(optSubText); 							// makeSubli.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
@@ -268,7 +277,7 @@ function toggleControls(n)
 		editLink.key = key;	
 		var editText = "Edit Info";
 		editLink.addEventListener("click", editItem);
-		editLink.innerHTML = editText;
+		$('editLink').html(editText);    // editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
 		// adds a seperator between links
@@ -280,7 +289,7 @@ function toggleControls(n)
 		deleteLink.key = key;
 		var deleteText = "Delete Info";
 		deleteLink.addEventListener("click", deleteItem);
-		deleteLink.innerHTML = deleteText;
+		$('deleteLink').html(deleteText);			// deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
 	
@@ -426,7 +435,7 @@ function toggleControls(n)
 		var getgroups = getE('groups');
 		
 		//reset error messages
-		errMsg.innerHTML = "";
+		$('errMsg').html("");    // errMsg.innerHTML = "";
 		getgroups.style.border = "1px solid black";
 		getfname.style.border = "1px solid black";
 		getbname.style.border = "1px solid black";
@@ -477,7 +486,7 @@ function toggleControls(n)
 			for(var i = 0, j = messageArry.length; i < j; i++)
 			{	
 				var txt = document.createElement('li');
-				txt.innerHTML = messageArry[i];
+				$('txt').html(messageArry[i]);     // txt.innerHTML = messageArry[i];
 				errMsg.appendChild(txt);
 			}
 			e.preventDefault();
