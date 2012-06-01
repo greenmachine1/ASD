@@ -15,10 +15,15 @@ $(function(){
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
-var myElement = $('#groups');
 
-for(var i = 0; i < bandType.length; i++)
+for (var i = 0; i < bandType.length; i++){
+	var myNewThingy = $('#groups');
+	myNewThingy.append('<option>');
+		
+}
+/*for(var i = 0; i < bandType.length; i++)
 {
+	var myElement = $('#groups');
 	var myNewElement = document.createElement("option");
 	myElement.append(myNewElement);
 	
@@ -26,7 +31,7 @@ for(var i = 0; i < bandType.length; i++)
 	myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
 	
 } 
-
+*/
 
 	
 // this actually works now in dynamically pulling my json file and 
