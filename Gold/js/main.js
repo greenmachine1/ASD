@@ -14,31 +14,20 @@ function makeCatagory()
 
 	for(var i = 0; i < bandType.length; i++)
 	{
-		var myElement = $('#groups');
-		var myNewElement = document.createElement("option");
-		myElement.append(myNewElement);
-	
-		var myText = document.createTextNode(bandType[i]);
-		myNewElement.appendChild(myText);    	
+		// able to compress my code into two lines using jquery!
+		var myNewElement = $('<option>').text(bandType[i]); 
+		$('#groups').append(myNewElement);  	    	
 	} 
 }
 
 // function used to dynamically populate my search band page
 function popBandSearch()
 {	
-		for(var key in json)
+	for(var key in json)
 	{
-		var getBandListEle = $('#bandSearch');  //getE("bandSearch");
-		var setBandListLi = document.createElement("li");
-	
-		getBandListEle.append(setBandListLi);  // getBandListEle.appendChild(setBandListLi);
-	
-		// so this works now in dynamically populating the search bands page!
-		// using the json[key].bname[1], I can pull the value in each bname
-		// and insert it into the page! Super exciting!
-		var bandInfo = document.createTextNode(json[key].bname[1]);
-	
-		setBandListLi.appendChild(bandInfo);
+		// once again making my code more compact!
+		var setBandListLi = $('<li>').text(json[key].bname[1]);  
+		$('#bandSearch').append(setBandListLi);  
 	}
 }
 		
