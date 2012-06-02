@@ -5,8 +5,8 @@
 
 //waiting until the DOM is ready
 // this beginning function has been modified to fit the jquery version
-/*$(function(){
-	function getE(x)
+$(function(){
+	/*function getE(x)
 	{
 		var theElement = document.getElementById(x);
 		return theElement;
@@ -16,12 +16,8 @@
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
 
-for (var i = 0; i < bandType.length; i++){
-	var myNewThingy = $('#groups');
-	myNewThingy.append('<option>');
-		
-}
-/*for(var i = 0; i < bandType.length; i++)
+
+for(var i = 0; i < bandType.length; i++)
 {
 	var myElement = $('#groups');
 	var myNewElement = document.createElement("option");
@@ -31,7 +27,7 @@ for (var i = 0; i < bandType.length; i++){
 	myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
 	
 } 
-*/
+
 
 	
 // this actually works now in dynamically pulling my json file and 
