@@ -5,13 +5,13 @@
 
 //waiting until the DOM is ready
 // this beginning function has been modified to fit the jquery version
-$(function(){
+/*$(function(){
 	function getE(x)
 	{
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
-	
+*/	
 // this works to dynamically populate the genre group!
 var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
 
@@ -147,17 +147,17 @@ function toggleControls(n)
 	switch(n)
 	{
 		case "on":
-			getE('bandInfo').style.display = "none";
-			getE('reset').style.display = "inline";
-			getE('disp').style.display = "none";
-			getE('addNew').style.display = "inline";
+			$('bandInfo').style.display = "none";
+			$('reset').style.display = "inline";
+			$('disp').style.display = "none";
+			$('addNew').style.display = "inline";
 			break;
 		case "off":
-			getE('bandInfo').style.display = "block";
-			getE('reset').style.display = "inline";
-			getE('disp').style.display = "inline";
-			getE('addNew').style.display = "inline";
-			getE('item').style.display = "inline";
+			$('bandInfo').style.display = "block";
+			$('reset').style.display = "inline";
+			$('disp').style.display = "inline";
+			$('addNew').style.display = "inline";
+			$('item').style.display = "inline";
 			break;
 		default:
 			return false;
@@ -182,11 +182,11 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.fname 			= ["Your Name:", getE('fname').value];
-			item.bname 			= ["Band Name:", getE('bname').value];
-			item.email			= ["Email Address:", getE('email').value];
-			item.groups 		= ["Genre:", getE('groups').value];
-			item.startdate		= ["Date Requesting: ", getE('startdate').value];
+			item.fname 			= ["Your Name:", $('fname').value];
+			item.bname 			= ["Band Name:", $('bname').value];
+			item.email			= ["Email Address:", $('email').value];
+			item.groups 		= ["Genre:", $('groups').value];
+			item.startdate		= ["Date Requesting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -197,8 +197,8 @@ function toggleControls(n)
 			item.instrument8	= ["3 backup vocals", instrument8Value];
 			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-			item.other1			= ["Other Info:", getE('other1').value];
-			item.tickets		= ["Tickets Wanted", getE('tickets').value];
+			item.other1			= ["Other Info:", $('other1').value];
+			item.tickets		= ["Tickets Wanted", $('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
@@ -220,7 +220,7 @@ function toggleControls(n)
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		getE('item').style.display = "block";
+		$('item').style.display = "block";
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
 			var makeli = document.createElement('li');
@@ -304,11 +304,11 @@ function toggleControls(n)
 		toggleControls("off");
 		
 		// populate the form fields with the current localStorage values.
-		getE('fname').value = item.fname[1];
-		getE('bname').value = item.bname[1];
-		getE('email').value = item.email[1];
-		getE('groups').value = item.groups[1];
-		getE('startdate').value = item.startdate[1];
+		$('fname').value = item.fname[1];
+		$('bname').value = item.bname[1];
+		$('email').value = item.email[1];
+		$('groups').value = item.groups[1];
+		$('startdate').value = item.startdate[1];
 	if($('#inst1').checked)
 	{
 		instrument1Value = $('#inst1').value;
@@ -382,14 +382,14 @@ function toggleControls(n)
 		instrument9Value = "No";
 	} 
 		
-		getE('other1').value = item.other1[1];
-		getE('tickets').value = item.tickets[1];
+		$('other1').value = item.other1[1];
+		$('tickets').value = item.tickets[1];
 		
 		// remove the initial listener from the input save conctact
 		submit.removeEventListener("click", storeData);  // changed save to submit
 		// change submit button value to edit button
-		getE('submit').value = "Edit Contact";
-		var editSubmit = getE('submit');
+		$('submit').value = "Edit Contact";
+		var editSubmit = $('submit');
 		// save key value established in this function as a property of the edit submit event
 		// so we can use that value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -430,10 +430,10 @@ function toggleControls(n)
 	function validate(e)
 	{
 		// define the elements we want to check
-		var getfname = getE('fname');
-		var getbname = getE('bname');
-		var getemail = getE('email');
-		var getgroups = getE('groups');
+		var getfname = $('fname');
+		var getbname = $('bname');
+		var getemail = $('email');
+		var getgroups = $('groups');
 		
 		//reset error messages
 		$('errMsg').html("");    // errMsg.innerHTML = "";
@@ -507,16 +507,16 @@ function toggleControls(n)
 	// set link and submit click events
 	
 	// shows data function
-	var dispInfo = getE('disp');
+	var dispInfo = $('disp');
 	dispInfo.addEventListener("click", getData);
 	
 	// set submit click events
-	var submit = getE('submit');
+	var submit = $('submit');
 	submit.addEventListener("click", validate);
 	
 	
 	// clear function
-	var clear = getE('reset');
+	var clear = $('reset');
 	clear.addEventListener("click", clearLocal);
 });
 
