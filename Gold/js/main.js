@@ -6,45 +6,41 @@
 //waiting until the DOM is ready
 // this beginning function has been modified to fit the jquery version
 $(function(){
-	/*function getE(x)
+
+function makeCatagory()
+{
+	var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
+
+	for(var i = 0; i < bandType.length; i++)
 	{
-		var theElement = document.getElementById(x);
-		return theElement;
+		var myElement = $('#groups');
+		var myNewElement = document.createElement("option");
+		myElement.append(myNewElement);
+	
+		var myText = document.createTextNode(bandType[i]);
+		myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
+	
+	} 
+}
+
+function popBandSearch()
+{	
+	// this actually works now in dynamically pulling my json file and 
+	// populating the search band page
+	for(var key in json)
+	{
+		var getBandListEle = $('#bandSearch');  //getE("bandSearch");
+		var setBandListLi = document.createElement("li");
+	
+		getBandListEle.append(setBandListLi);  // getBandListEle.appendChild(setBandListLi);
+	
+		// so this works now in dynamically populating the search bands page!
+		// using the json[key].bname[1], I can pull the value in each bname
+		// and insert it into the page! Super exciting!
+		var bandInfo = document.createTextNode(json[key].bname[1]);
+	
+		setBandListLi.appendChild(bandInfo);
 	}
-*/	
-// this works to dynamically populate the genre group!
-var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
-
-
-
-for(var i = 0; i < bandType.length; i++)
-{
-	var myElement = $('#groups');
-	var myNewElement = document.createElement("option");
-	myElement.append(myNewElement);
-	
-	var myText = document.createTextNode(bandType[i]);
-	myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
-	
-} 
-
-
-	
-// this actually works now in dynamically pulling my json file and 
-// populating the search band page
-for(var key in json)
-{
-	var getBandListEle = $('#bandSearch');  //getE("bandSearch");
-	var setBandListLi = document.createElement("li");
-	
-	getBandListEle.append(setBandListLi);  // getBandListEle.appendChild(setBandListLi);
-	
-// so this works now in dynamically populating the search bands page!
-// using the json[key].bname[1], I can pull the value in each bname
-// and insert it into the page! Super exciting!
-	var bandInfo = document.createTextNode(json[key].bname[1]);
-	
-	setBandListLi.appendChild(bandInfo);
 }
 		
 	var	instrument1Value = "no",
@@ -498,22 +494,21 @@ function toggleControls(n)
 	}
 	
 	// calling on the makeCatagory function
-	//makeCatagory();
+	makeCatagory();
+	popBandSearch();
 	
 	// set link and submit click events
-	
+	// made all my links jquery links insead of normal javascript
 	// shows data function
-	var dispInfo = $('disp');
-	dispInfo.addEventListener("click", getData);
+	$('disp').bind('click', getData);
+	
 	
 	// set submit click events
-	var submit = $('submit');
-	submit.addEventListener("click", validate);
+	$('submit').bind('click', validate);
 	
 	
 	// clear function
-	var clear = $('reset');
-	clear.addEventListener("click", clearLocal);
-});
+	$('reset').bind('click', clearLocal);
+	});
 
 
