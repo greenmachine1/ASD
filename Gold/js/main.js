@@ -135,9 +135,9 @@ function toggleControls(n)
 		case "off":
 			$('bandInfo').css('display', "block");
 			$('reset').css('display', "inline");
-			$('disp').style.display = "inline";
-			$('addNew').style.display = "inline";
-			$('item').style.display = "inline";
+			$('disp').css('display', "inline");
+			$('addNew').css('display', "inline");
+			$('item').css('display', "inline");
 			break;
 		default:
 			return false;
@@ -162,11 +162,11 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.fname 			= ["Your Name:", $('fname').value];
-			item.bname 			= ["Band Name:", $('bname').value];
-			item.email			= ["Email Address:", $('email').value];
+			item.fname 			= ["Your Name:", $('fname').val()];  //value
+			item.bname 			= ["Band Name:", $('bname').val()];
+			item.email			= ["Email Address:", $('email').val()];
 			item.groups 		= ["Genre:", $('groups').value];
-			item.startdate		= ["Date Requesting: ", $('startdate').value];
+			item.startdate		= ["Date Requesting: ", $('startdate').val()];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -177,15 +177,15 @@ function toggleControls(n)
 			item.instrument8	= ["3 backup vocals", instrument8Value];
 			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-			item.other1			= ["Other Info:", $('other1').value];
-			item.tickets		= ["Tickets Wanted", $('tickets').value];
+			item.other1			= ["Other Info:", $('other1').val()];
+			item.tickets		= ["Tickets Wanted", $('tickets').val()];
 			
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
-		
-		
 	}
+
+
 
 	function getData()
 	// writes data from local storage to the browser
@@ -200,8 +200,8 @@ function toggleControls(n)
 		makeDiv.attr("id", "item");  // setAttribute("id", "item");
 		var makeList = $('<ul>');	//createElement('ul');
 		makeDiv.append(makeList);
-		$('#ending').appendChild(makeDiv);					//document.body.appendChild(makeDiv);	// this might be 																//creating a problem as it is trying to append a div to the 															//body...yeah...
-		$('#item').style.display = "block";
+		$('#ending').append(makeDiv);					//document.body.appendChild(makeDiv);	// this might be 																//creating a problem as it is trying to append a div to the 															//body...yeah...
+		$('#item').css('display', "block");
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
 			var makeli = $('<li>');
@@ -421,27 +421,27 @@ function toggleControls(n)
 		
 		//reset error messages
 		$('errMsg').html("");    // errMsg.innerHTML = "";
-		getgroups.style.border = "1px solid black";
-		getfname.style.border = "1px solid black";
-		getbname.style.border = "1px solid black";
-		getemail.style.border = "1px solid black";
+		getgroups.css({'border': "1px", "color": "black"});
+		getfname.css({'border': "1px", "color": "black"});
+		getbname.css({'border': "1px", "color": "black"});
+		getemail.css({'border': "1px", "color": "black"});
 		
 		
 		// get error messages
 		var messageArry = [];
 		// fname validation
-		if(getgroups.value == "--choose a genre--")
+		/*if(getgroups.value == "--choose a genre--")
 		{
 			var genreError = "Please choose a genre.";
-			getgroups.style.border = "1px solid red";
+			getgroups.css('border', "1px solid red");
 			messageArry.push(genreError);
-		}
+		} */
 		
 		// name validation
 		if(getfname.value === "")
 		{
 			var fNameError = "Please enter in your name";
-			getfname.style.border = "1px solid red";
+			getfname.css({'border': "1px", "color": "red"});
 			messageArry.push(fNameError);
 		}
 		
@@ -449,7 +449,7 @@ function toggleControls(n)
 		if(getbname.value === "")
 		{
 			var bNameError = "Please enter in your band name";
-			getbname.style.border = "1px solid red";
+			getbname.css({'border': "1px", "color": "red"});
 			messageArry.push(bNameError);
 		}
 		
@@ -460,7 +460,7 @@ function toggleControls(n)
 		if(!(regular.exec(getemail.value)))
 		{
 			var emailError = "Please enter a valid email address.";
-			getemail.style.border = "1px solid red";
+			getemail.css({'border': "1px", "color": "red"});
 			messageArry.push(emailError);
 		}	
 		
