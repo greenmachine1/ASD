@@ -7,6 +7,7 @@
 // this beginning function has been modified to fit the jquery version
 $(function(){
 
+// function used to dynamically populate my genre drop down menu
 function makeCatagory()
 {
 	var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
@@ -18,16 +19,14 @@ function makeCatagory()
 		myElement.append(myNewElement);
 	
 		var myText = document.createTextNode(bandType[i]);
-		myNewElement.appendChild(myText);     //myNewElement.appendChild(myText);
-	
+		myNewElement.appendChild(myText);    	
 	} 
 }
 
+// function used to dynamically populate my search band page
 function popBandSearch()
 {	
-	// this actually works now in dynamically pulling my json file and 
-	// populating the search band page
-	for(var key in json)
+		for(var key in json)
 	{
 		var getBandListEle = $('#bandSearch');  //getE("bandSearch");
 		var setBandListLi = document.createElement("li");
@@ -43,6 +42,7 @@ function popBandSearch()
 	}
 }
 		
+// default values for my checkboxes		
 	var	instrument1Value = "no",
 		instrument2Value = "no",
 		instrument3Value = "no",
@@ -55,8 +55,7 @@ function popBandSearch()
 		
 	var errMsg = $('#errors');	
 		
-// find value of selected buttons\
-// changed all of my getE for my instrument return values to a $
+// find value of selected buttons
 function getCheckBoxValue()
 {
 	if($('#inst1').checked)
@@ -191,6 +190,7 @@ function toggleControls(n)
 		
 			item.other1			= ["Other Info:", $('other1').value];
 			item.tickets		= ["Tickets Wanted", $('tickets').value];
+			
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
@@ -220,6 +220,7 @@ function toggleControls(n)
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
+			
 			// convert the string fromm local storage value back to an object by using JSON .parse
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
