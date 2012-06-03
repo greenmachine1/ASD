@@ -127,17 +127,17 @@ function toggleControls(n)
 	switch(n)
 	{
 		case "on":
-			$('bandInfo').css('display', "none");  //style.display = "none";
-			$('reset').css('display', "inline");
-			$('disp').css('display', "none");
-			$('addNew').css('display', "inline");
+			$('#bandInfo').css('display', "none");  //style.display = "none";
+			$('#reset').css('display', "inline");
+			$('#disp').css('display', "none");
+			$('#addNew').css('display', "inline");
 			break;
 		case "off":
-			$('bandInfo').css('display', "block");
-			$('reset').css('display', "inline");
-			$('disp').css('display', "inline");
-			$('addNew').css('display', "inline");
-			$('item').css('display', "inline");
+			$('#bandInfo').css('display', "block");
+			$('#reset').css('display', "inline");
+			$('#disp').css('display', "inline");
+			$('#addNew').css('display', "inline");
+			$('#item').css('display', "inline");
 			break;
 		default:
 			return false;
@@ -162,11 +162,11 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.fname 			= ["Your Name:", $('fname').val()];  //value
-			item.bname 			= ["Band Name:", $('bname').val()];
-			item.email			= ["Email Address:", $('email').val()];
-			item.groups 		= ["Genre:", $('groups').value];
-			item.startdate		= ["Date Requesting: ", $('startdate').val()];
+			item.fname 			= ["Your Name:", $('#fname').val()];  //value
+			item.bname 			= ["Band Name:", $('#bname').val()];
+			item.email			= ["Email Address:", $('#email').val()];
+			item.groups 		= ["Genre:", $('#groups').value];
+			item.startdate		= ["Date Requesting: ", $('#startdate').val()];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -177,8 +177,8 @@ function toggleControls(n)
 			item.instrument8	= ["3 backup vocals", instrument8Value];
 			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-			item.other1			= ["Other Info:", $('other1').val()];
-			item.tickets		= ["Tickets Wanted", $('tickets').val()];
+			item.other1			= ["Other Info:", $('#other1').val()];
+			item.tickets		= ["Tickets Wanted", $('#tickets').val()];
 			
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
@@ -262,7 +262,7 @@ function toggleControls(n)
 		editLink.key = key;	
 		var editText = "Edit Info";
 		editLink.bind("click", editItem); //addEventListener("click", editItem);
-		$('editLink').html(editText);    // editLink.innerHTML = editText;
+		$('#editLink').html(editText);    // editLink.innerHTML = editText;
 		linksLi.append(editLink);
 		
 		// adds a seperator between links
@@ -274,7 +274,7 @@ function toggleControls(n)
 		deleteLink.key = key;
 		var deleteText = "Delete Info";
 		deleteLink.bind("click", deleteItem);
-		$('deleteLink').html(deleteText);			// deleteLink.innerHTML = deleteText;
+		$('#deleteLink').html(deleteText);			// deleteLink.innerHTML = deleteText;
 		linksLi.append(deleteLink);
 	}
 	
@@ -288,11 +288,11 @@ function toggleControls(n)
 		toggleControls("off");
 		
 		// populate the form fields with the current localStorage values.
-		$('fname').val(item.fname[1]); // .value = item.fname[1];
-		$('bname').val(item.bname[1]);
-		$('email').val(item.email[1]);
-		$('groups').val(item.groups[1]);
-		$('startdate').val(item.startdate[1]);
+		$('#fname').val(item.fname[1]); // .value = item.fname[1];
+		$('#bname').val(item.bname[1]);
+		$('#email').val(item.email[1]);
+		$('#groups').val(item.groups[1]);
+		$('#startdate').val(item.startdate[1]);
 	if($('#inst1').checked)
 	{
 		instrument1Value = $('#inst1').value;
@@ -366,14 +366,14 @@ function toggleControls(n)
 		instrument9Value = "No";
 	} 
 		
-		$('other1').val(item.other1[1]);
-		$('tickets').val(item.tickets[1]);
+		$('#other1').val(item.other1[1]);
+		$('#tickets').val(item.tickets[1]);
 		
 		// remove the initial listener from the input save conctact
 		submit.unbind("click", storeData);  // changed save to submit removeEventListener("click", 																 //storeData);
 		// change submit button value to edit button
-		$('submit').val("Edit Contact");
-		var editSubmit = $('submit');
+		$('#submit').val("Edit Contact");
+		var editSubmit = $('#submit');
 		// save key value established in this function as a property of the edit submit event
 		// so we can use that value when we save the data we edited.
 		editSubmit.bind("click", validate); //addEventListener("click", validate);
@@ -414,13 +414,13 @@ function toggleControls(n)
 	function validate(e)
 	{
 		// define the elements we want to check
-		var getfname = $('fname');
-		var getbname = $('bname');
-		var getemail = $('email');
-		var getgroups = $('groups');
+		var getfname = $('#fname');
+		var getbname = $('#bname');
+		var getemail = $('#email');
+		var getgroups = $('#groups');
 		
 		//reset error messages
-		$('errMsg').html("");    // errMsg.innerHTML = "";
+		$('#errMsg').html("");    // errMsg.innerHTML = "";
 		getgroups.css({'border': "1px", "color": "black"});
 		getfname.css({'border': "1px", "color": "black"});
 		getbname.css({'border': "1px", "color": "black"});
@@ -470,8 +470,8 @@ function toggleControls(n)
 		{
 			for(var i = 0, j = messageArry.length; i < j; i++)
 			{	
-				var txt = document.createElement('li');
-				$('txt').html(messageArry[i]);     // txt.innerHTML = messageArry[i];
+				var txt = document.createElement('<li>');
+				txt.html(messageArry[i]);     // txt.innerHTML = messageArry[i];
 				errMsg.append(txt);
 			}
 			e.preventDefault();
