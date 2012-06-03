@@ -197,7 +197,7 @@ function toggleControls(n)
 			autoFillData();
 		}
 		var makeDiv = $('<div>');  //document.createElement('div');
-		makeDiv.attr("id", "item");  // setAttribute("id", "item");
+		makeDiv.attr('id', "item");  // setAttribute("id", "item"); set this to 'id'
 		var makeList = $('<ul>');	//createElement('ul');
 		makeDiv.append(makeList);
 		$('#ending').append(makeDiv);					//document.body.appendChild(makeDiv);	// this might be 																//creating a problem as it is trying to append a div to the 															//body...yeah...
@@ -212,16 +212,16 @@ function toggleControls(n)
 			
 			// convert the string fromm local storage value back to an object by using JSON .parse
 			var obj = JSON.parse(value);
-			var makeSubList = $('<ul>');  //document.createElement('ul');
+			var makeSubList = $('<ul>');  
 			makeli.append(makeSubList);
 			
 			getImage(obj.groups[1], makeSubList); // gets an image for our form, passes in makeSubList
-			for(var n in obj)	// changed item from obj
+			for(var n in obj)	
 			{
-				var makeSubli = $('<li>');  //document.createElement('li');
+				var makeSubli = $('<li>'); ;
 				makeSubList.append(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubli.html(optSubText); 							// makeSubli.innerHTML = optSubText;
+				makeSubli.html(optSubText); 							
 				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
@@ -236,7 +236,7 @@ function toggleControls(n)
 		var imageLi = $('<li>');  //document.createElement('li');
 		$('<ul>').append(imageLi); // makeSubList.appendChild(imageLi);
 		var newImg = $('<img>');  //document.createElement('img');
-		var setSrc = newImg.attr("src", "pics/"+ catName + ".png");
+		var setSrc = newImg.attr('src', "pics/"+ catName + ".png");
 		imageLi.append(newImg);
 	}
 	
