@@ -49,7 +49,7 @@ function getCheckBoxValue()
 {
 	if($('#inst1').checked)
 	{
-		instrument1Value = $('#inst1').value;
+		instrument1Value = $('#inst1').val();
 	}
 	else
 	{
@@ -57,7 +57,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst2').checked)
 	{
-		instrument2Value = $('#inst2').value;
+		instrument2Value = $('#inst2').val();
 	}
 	else
 	{
@@ -65,7 +65,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst3').checked)
 	{
-		instrument3Value = $('#inst3').value;
+		instrument3Value = $('#inst3').val();
 	}
 	else
 	{
@@ -73,7 +73,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst4').checked)
 	{
-		instrument4Value = $('#inst4').value;
+		instrument4Value = $('#inst4').val();
 	}
 	else
 	{
@@ -81,7 +81,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst5').checked)
 	{
-		instrument5Value = $('#inst5').value;
+		instrument5Value = $('#inst5').val();
 	}
 	else
 	{
@@ -89,7 +89,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst6').checked)
 	{
-		instrument6Value = $('#inst6').value;
+		instrument6Value = $('#inst6').val();
 	}
 	else
 	{
@@ -97,7 +97,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst7').checked)
 	{
-		instrument7Value = $('#inst7').value;
+		instrument7Value = $('#inst7').val();
 	}
 	else
 	{
@@ -105,7 +105,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst8').checked)
 	{
-		instrument8Value = $('#inst8').value;
+		instrument8Value = $('#inst8').val();
 	}
 	else
 	{
@@ -113,7 +113,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst9').checked)
 	{
-		instrument9Value = $('#inst9').value;
+		instrument9Value = $('#inst9').val();
 	}
 	else
 	{
@@ -165,7 +165,7 @@ function toggleControls(n)
 			item.fname 			= ["Your Name:", $('#fname').val()];  //value
 			item.bname 			= ["Band Name:", $('#bname').val()];
 			item.email			= ["Email Address:", $('#email').val()];
-			item.groups 		= ["Genre:", $('#groups').value];
+			item.groups 		= ["Genre:", $('#groups').val()];
 			item.startdate		= ["Date Requesting: ", $('#startdate').val()];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
@@ -295,7 +295,7 @@ function toggleControls(n)
 		$('#startdate').val(item.startdate[1]);
 	if($('#inst1').checked)
 	{
-		instrument1Value = $('#inst1').value;
+		instrument1Value = $('#inst1').val();
 	}
 	else
 	{
@@ -303,7 +303,7 @@ function toggleControls(n)
 	}
 	if($('#inst2').checked)
 	{
-		instrument2Value = $('#inst2').value;
+		instrument2Value = $('#inst2').val();
 	}
 	else
 	{
@@ -311,7 +311,7 @@ function toggleControls(n)
 	}
 	if($('#inst3').checked)
 	{
-		instrument3Value = $('#inst3').value;
+		instrument3Value = $('#inst3').val();
 	}
 	else
 	{
@@ -319,7 +319,7 @@ function toggleControls(n)
 	}
 	if($('#inst4').checked)
 	{
-		instrument4Value = $('#inst4').value;
+		instrument4Value = $('#inst4').val();
 	}
 	else
 	{
@@ -327,7 +327,7 @@ function toggleControls(n)
 	}
 	if($('#inst5').checked)
 	{
-		instrument5Value = $('#inst5').value;
+		instrument5Value = $('#inst5').val();
 	}
 	else
 	{
@@ -335,7 +335,7 @@ function toggleControls(n)
 	}
 	if($('#inst6').checked)
 	{
-		instrument6Value = $('#inst6').value;
+		instrument6Value = $('#inst6').val();
 	}
 	else
 	{
@@ -343,7 +343,7 @@ function toggleControls(n)
 	}
 	if($('#inst7').checked)
 	{
-		instrument7Value = $('#inst7').value;
+		instrument7Value = $('#inst7').val();
 	}
 	else
 	{
@@ -351,7 +351,7 @@ function toggleControls(n)
 	}
 	if($('#inst8').checked)
 	{
-		instrument8Value = $('#inst8').value;
+		instrument8Value = $('#inst8').val();
 	}
 	else
 	{
@@ -359,7 +359,7 @@ function toggleControls(n)
 	}
 	if($('#inst9').checked)
 	{
-		instrument9Value = $('#inst9').value;
+		instrument9Value = $('#inst9').val();
 	}
 	else
 	{
@@ -438,7 +438,7 @@ function toggleControls(n)
 		} */
 		
 		// name validation
-		if(getfname.value === "")
+		if(getfname.val() === "")
 		{
 			var fNameError = "Please enter in your name";
 			getfname.css({'border': "1px", "color": "red"});
@@ -446,7 +446,7 @@ function toggleControls(n)
 		}
 		
 		// band validation
-		if(getbname.value === "")
+		if(getbname.val() === "")
 		{
 			var bNameError = "Please enter in your band name";
 			getbname.css({'border': "1px", "color": "red"});
@@ -457,7 +457,7 @@ function toggleControls(n)
 		//when I replaced all $ with getE, it changed the end $ to getE and 
 		//destroyed the programs ability to save!
 		var regular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		if(!(regular.exec(getemail.value)))
+		if(!(regular.exec(getemail.val())))
 		{
 			var emailError = "Please enter a valid email address.";
 			getemail.css({'border': "1px", "color": "red"});
