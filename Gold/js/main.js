@@ -197,10 +197,10 @@ function toggleControls(n)
 			autoFillData();
 		}
 		var makeDiv = $('<div>');  //document.createElement('div');
-		makeDiv.attr('id', "item");  // setAttribute("id", "item"); set this to 'id'
+		makeDiv.attr('#id', "item");  // setAttribute("id", "item"); set this to 'id'
 		var makeList = $('<ul>');	//createElement('ul');
 		makeDiv.append(makeList);
-		$('#ending').append(makeDiv);					//document.body.appendChild(makeDiv);	// this might be 																//creating a problem as it is trying to append a div to the 															//body...yeah...
+		$('#ending').append(makeDiv);					 															
 		$('#item').css('display', "block");
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
@@ -470,7 +470,7 @@ function toggleControls(n)
 		{
 			for(var i = 0, j = messageArry.length; i < j; i++)
 			{	
-				var txt = document.createElement('<li>');
+				var txt = $('<li>');  // document.createElement('<li>');
 				txt.html(messageArry[i]);     // txt.innerHTML = messageArry[i];
 				errMsg.append(txt);
 			}
