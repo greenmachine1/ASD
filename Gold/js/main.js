@@ -501,6 +501,6 @@ function toggleControls(n)
 	
 	// clear function
 	$('#reset').bind('click', clearLocal);
-	});
+});
 
 
