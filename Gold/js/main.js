@@ -127,7 +127,7 @@ function toggleControls(n)
 	switch(n)
 	{
 		case "on":
-			$('#bandInfo').css('display', "none");  //style.display = "none";
+			$('#bandInfo').css('display', "none");  
 			$('#reset').css('display', "inline");
 			$('#disp').css('display', "none");
 			$('#addNew').css('display', "inline");
@@ -162,7 +162,7 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.fname 			= ["Your Name:", $('#fname').val()];  //value
+			item.fname 			= ["Your Name:", $('#fname').val()];  
 			item.bname 			= ["Band Name:", $('#bname').val()];
 			item.email			= ["Email Address:", $('#email').val()];
 			item.groups 		= ["Genre:", $('#groups').val()];
@@ -196,9 +196,9 @@ function toggleControls(n)
 			alert("There is no data in local storage so default data was added.");
 			autoFillData();
 		}
-		var makeDiv = $('<div>');  //document.createElement('div');
-		makeDiv.attr('#id', "item");  // setAttribute("id", "item"); set this to 'id'
-		var makeList = $('<ul>');	//createElement('ul');
+		var makeDiv = $('<div>'); 
+		makeDiv.attr('#id', "item");  
+		var makeList = $('<ul>');	
 		makeDiv.append(makeList);
 		$('#ending').append(makeDiv);					 															
 		$('#item').css('display', "block");
