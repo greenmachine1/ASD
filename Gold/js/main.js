@@ -470,8 +470,8 @@ function toggleControls(n)
 		{
 			for(var i = 0, j = messageArry.length; i < j; i++)
 			{	
-				var txt = $('<li>');  // document.createElement('<li>');
-				txt.html(messageArry[i]);     // txt.innerHTML = messageArry[i];
+				var txt = $('<li>');  
+				txt.text(messageArry[i]);    //txt.html(messageArry[i]); 
 				errMsg.append(txt);
 			}
 			e.preventDefault();
