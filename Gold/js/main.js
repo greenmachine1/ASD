@@ -492,7 +492,7 @@ function toggleControls(n)
 	// set link and submit click events
 	// made all my links jquery links insead of normal javascript
 	// shows data function
-	$('#disp').bind('click', getData);
+	$('#disp').bind('click', getData); // bind('click', getData);
 	
 	
 	// set submit click events
