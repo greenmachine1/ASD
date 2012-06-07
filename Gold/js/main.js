@@ -74,10 +74,12 @@ function csvAjax()
 		dataType	:	null,
 		success		:	function(data,response)
 		{
-		
-				console.log(data);
-				// seperates the lines whenever it encounters the end of line tag
-				//var lines = data.split("\n");
+				
+			console.log(data);	
+			console.log(response);
+			var line = data.split(/\\n|\\r/);
+			
+			consol.log(line);
 				
 		
 		
