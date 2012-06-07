@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<items>
+<bandInfoses1>
     <item>
-        <title>Undead Monkey</title>
-        <species>Capuchin</species>
-        <name>Jack</name>
-        <price currency="USD">19.95</price>
+        <band>Dream theater</band>
+        <genre>Prog metal</genre>
+        <place>The whiskey</place>
+        <price currency="USD">35.95</price>
     </item>
-</items>
+    <item>
+        <band>Metallica</band>
+        <genre>metal</genre>
+        <place>Modesto Fat Cat</place>
+        <price currency="USD">9.95</price>
+    </item>
+    <item>
+        <band>Kid Rock</band>
+        <genre>Sissy Music</genre>
+        <place>No-where</place>
+        <price currency="USD">0.00</price>
+    </item>
+    <item>
+        <band>Symphony X</band>
+        <genre>Prog Metal</genre>
+        <place>Twain Harte Inn</place>
+        <price currency="USD">10.00</price>
+    </item>
+    <item>
+        <band>Van Halen</band>
+        <genre>rock</genre>
+        <place>San jose Center Plaza</place>
+        <price currency="USD">15.00</price>
+    </item>
+    <item>
+        <band>Devin Townsend</band>
+        <genre>Prog rock</genre>
+        <place>Water Wheel</place>
+        <price currency="USD">15.00</price>
+    </item>
+</bandInfoses1>

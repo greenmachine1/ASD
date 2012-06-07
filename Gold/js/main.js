@@ -45,14 +45,14 @@ function xmlAjax()
 		success		: function(response)
 		{
 			// ok ok this works!  Stumbled upon the use of .text() to reveal the actual value!
+			// the word item has to be used in this instance, will break code without
 				$(response).find("item").each(function()
 				{
 					var item = $(this);
-					var theName = item.find("title").text();
+					var theName = item.find("band").text();
 					
-					console.log(theName);
-					
-					
+					var newLi = $('<li>').text("The name of the person :" + theName);
+					$('#localBandList').append(newLi);
 					
 				});	
 		}		
