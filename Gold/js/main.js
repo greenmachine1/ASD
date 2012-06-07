@@ -7,6 +7,33 @@
 // this beginning function has been modified to fit the jquery version
 $(function(){
 
+
+
+// this will be used to pull from my json file!
+// the actual json file should not have var json at the beginning of it!
+
+	$.ajax({
+		url			: 'xhr/json.js',
+		type		: 'GET',
+		dataType	: 'json',
+		success		: function(response){
+						var bandNameThingy = $('<li>').text(response.bandInfo1.bname[1]);
+						$('#bandSearchFeed').append(bandNameThingy);
+		}
+		
+	});
+	
+
+
+
+
+
+
+
+
+
+
+
 // function used to dynamically populate my genre drop down menu
 function makeCatagory()
 {
