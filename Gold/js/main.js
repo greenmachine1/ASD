@@ -18,7 +18,7 @@ $(function(){
 		dataType	: 'json',
 		success		: function(response){
 						var bandNameThingy = $('<li>').text(response.bandInfo1.bname[1]);
-						$('#bandSearchFeed').append(bandNameThingy);
+						$('#localBandList').append(bandNameThingy);
 		}
 		
 	});
