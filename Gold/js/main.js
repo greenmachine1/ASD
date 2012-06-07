@@ -9,12 +9,15 @@ $(function(){
 
 
 
+
 // this will be used to pull from my json file!
 // the actual json file should not have var json at the beginning of it!
 function jsonAjax()
 {
+	
+
 	$.ajax({
-		url			: 'xhr/json.js',
+		url			: 'xhr/data.json',
 		type		: 'GET',
 		dataType	: 'json',
 		success		: function(response)
@@ -22,7 +25,7 @@ function jsonAjax()
 					for(var i = 0, j = response.bandInfo.length; i < j; i++)
 					{
 						var info = response.bandInfo[i];
-						$('' + '<li>' + "name of person : " + info.fname + '</li>' +
+						$('' + '<li>' + "name of person : " +info.fname + '</li>' +
 							   '<li>' + "name of band : " +info.bname + '</li>'+
 							   '<li>' + "genre of group : " +info.groups + '</li>'
 							   ).appendTo('#localBandList');
@@ -32,6 +35,24 @@ function jsonAjax()
 		});
 }	
 
+// this is going to be pulling from my xml file!
+function xmlAjax()
+{
+	$.ajax({
+		url			:	'xhr/xml.js',
+		type		:	'GET',
+		dataType	:	'xml',
+		success		: function(response)
+		{
+			
+				$(response).find("item").each(function()
+				{
+					var item = $(this);
+					console.log("Name: ", item.find("name"));
+				});	
+		}		
+		});
+}	
 
 
 
@@ -525,6 +546,8 @@ function toggleControls(n)
 	popBandSearch();
 	
 	$('#jsonButton').bind('click', jsonAjax);
+	
+	$('#xmlButton').bind('click', xmlAjax);
 	
 	
 	// set link and submit click events
