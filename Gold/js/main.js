@@ -49,10 +49,15 @@ function xmlAjax()
 				$(response).find("item").each(function()
 				{
 					var item = $(this);
-					var theName = item.find("band").text();
+					var bName = item.find("band").text();
+					var genre = item.find("genre").text();
+					var place = item.find("place").text();
+					var price = item.find("price").text();
 					
-					var newLi = $('<li>').text("The name of the person :" + theName);
-					$('#localBandList').append(newLi);
+					
+					var newLi = $('<li>').text("The name of the band : " + bName + " the Genre of music : " + genre);
+					var newNewLi = $('<li>').text("Where they are playing : " + place + " price of admission : " + price);
+					$('#localBandList').append(newLi , newNewLi);
 					
 				});	
 		}		
