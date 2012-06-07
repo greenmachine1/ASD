@@ -44,11 +44,16 @@ function xmlAjax()
 		dataType	:	'xml',
 		success		: function(response)
 		{
-			
+			// ok ok this works!  Stumbled upon the use of .text() to reveal the actual value!
 				$(response).find("item").each(function()
 				{
 					var item = $(this);
-					console.log("Name: ", item.find("name"));
+					var theName = item.find("title").text();
+					
+					console.log(theName);
+					
+					
+					
 				});	
 		}		
 		});
