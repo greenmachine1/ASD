@@ -54,17 +54,39 @@ function xmlAjax()
 					var place = item.find("place").text();
 					var price = item.find("price").text();
 					
-					
-					var newLi = $('<li>').text("The name of the band : " + bName + " the Genre of music : " + genre);
-					var newNewLi = $('<li>').text("Where they are playing : " + place + " price of admission : " + price);
-					$('#localBandList').append(newLi , newNewLi);
+// simply displaying the data :D					
+var newLi = $('<li>').text("The name of the band : " + bName + " the Genre of music : " + genre);
+
+var newNewLi = $('<li>').text("Where they are playing : " + place + " price of admission : " + price);
+// appending both li's
+$('#localBandList').append(newLi , newNewLi);
 					
 				});	
 		}		
 		});
 }	
 
-
+function csvAjax()
+{
+	$.ajax({
+		url			:	'xhr/data.csv',
+		type		:	'GET',
+		dataType	:	null,
+		success		:	function(data,response)
+		{
+		
+				console.log(data);
+				// seperates the lines whenever it encounters the end of line tag
+				//var lines = data.split("\n");
+				
+		
+		
+		
+		
+			
+		}
+	});
+}
 
 
 
@@ -558,6 +580,8 @@ function toggleControls(n)
 	$('#jsonButton').bind('click', jsonAjax);
 	
 	$('#xmlButton').bind('click', xmlAjax);
+	
+	$('#otherButton').bind('click', csvAjax);
 	
 	
 	// set link and submit click events
