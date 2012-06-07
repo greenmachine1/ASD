@@ -17,10 +17,15 @@ $(function(){
 		type		: 'GET',
 		dataType	: 'json',
 		success		: function(response){
-						var bandNameThingy = $('<li>').text(response.bandInfo1.bname[1]);
-						$('#localBandList').append(bandNameThingy);
-		}
-		
+					for(var i = 0, j = response.bandInfo.length; i < j; i++){
+						var info = response.bandInfo[i];
+						$('' + '<li>' +info.fname + '</li' +
+							   '<li>' +info.bname + '</li>'+
+							   '<li>' +info.groups + '</li>'
+							   ).appendTo('#localBandList');
+					}
+											
+				}	
 	});
 	
 
