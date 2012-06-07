@@ -11,23 +11,26 @@ $(function(){
 
 // this will be used to pull from my json file!
 // the actual json file should not have var json at the beginning of it!
-
+function jsonAjax()
+{
 	$.ajax({
 		url			: 'xhr/json.js',
 		type		: 'GET',
 		dataType	: 'json',
-		success		: function(response){
-					for(var i = 0, j = response.bandInfo.length; i < j; i++){
+		success		: function(response)
+		{
+					for(var i = 0, j = response.bandInfo.length; i < j; i++)
+					{
 						var info = response.bandInfo[i];
-						$('' + '<li>' +info.fname + '</li' +
-							   '<li>' +info.bname + '</li>'+
-							   '<li>' +info.groups + '</li>'
+						$('' + '<li>' + "name of person : " + info.fname + '</li>' +
+							   '<li>' + "name of band : " +info.bname + '</li>'+
+							   '<li>' + "genre of group : " +info.groups + '</li>'
 							   ).appendTo('#localBandList');
 					}
 											
-				}	
-	});
-	
+		}	
+		});
+}	
 
 
 
@@ -520,6 +523,9 @@ function toggleControls(n)
 	// calling on the makeCatagory function
 	makeCatagory();
 	popBandSearch();
+	
+	$('#jsonButton').bind('click', jsonAjax);
+	
 	
 	// set link and submit click events
 	// made all my links jquery links insead of normal javascript
