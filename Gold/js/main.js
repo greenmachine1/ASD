@@ -39,7 +39,7 @@ function jsonAjax()
 function xmlAjax()
 {
 	$.ajax({
-		url			:	'xhr/xml.js',
+		url			:	'xhr/data.xml',
 		type		:	'GET',
 		dataType	:	'xml',
 		success		: function(response)
