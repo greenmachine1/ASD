@@ -58,6 +58,7 @@ function xmlAjax()
 var newLi = $('<li>').text("The name of the band : " + bName + " the Genre of music : " + genre);
 
 var newNewLi = $('<li>').text("Where they are playing : " + place + " price of admission : " + price);
+
 // appending both li's
 $('#localBandList').append(newLi , newNewLi);
 					
@@ -71,21 +72,16 @@ function csvAjax()
 	$.ajax({
 		url			:	'xhr/data.csv',
 		type		:	'GET',
-		dataType	:	null,
+		dataType	:	"text",
 		success		:	function(data,response)
 		{
-				
-			console.log(data);	
-			console.log(response);
-			var line = data.split(/\\n|\\r/);
+			// cannot seem to get my split to work!!!
+			console.log(data);
 			
-			consol.log(line);
-				
-		
-		
-		
-		
+			var thingy = data.split("\n");
+			console.log(thingy);	
 			
+	
 		}
 	});
 }
@@ -579,6 +575,7 @@ function toggleControls(n)
 	makeCatagory();
 	popBandSearch();
 	
+	// buttons for my json,xml, and my csv files
 	$('#jsonButton').bind('click', jsonAjax);
 	
 	$('#xmlButton').bind('click', xmlAjax);
