@@ -75,13 +75,19 @@ function csvAjax()
 		dataType	:	"text",
 		success		:	function(data,response)
 		{
-			// cannot seem to get my split to work!!!
+			// my split function now works now that I have the correct dataType
 			console.log(data);
 			
 			var thingy = data.split("\n");
 			console.log(thingy);	
 			
-	
+			for (var lineNum = 0; lineNum < thingy.length; lineNum++)
+			{
+				var row = thingy[lineNum];
+				var columns = row.split(",");
+				
+				console.log(columns[0],columns[1],columns[2], columns[3]);
+			}
 		}
 	});
 }
