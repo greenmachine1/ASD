@@ -67,6 +67,8 @@ $('#localBandList').append(newLi , newNewLi);
 		});
 }	
 
+
+// my csv ajax now works!!
 function csvAjax()
 {
 	$.ajax({
@@ -76,17 +78,19 @@ function csvAjax()
 		success		:	function(data,response)
 		{
 			// my split function now works now that I have the correct dataType
-			console.log(data);
+			
 			
 			var thingy = data.split("\n");
-			console.log(thingy);	
+			
 			
 			for (var lineNum = 0; lineNum < thingy.length; lineNum++)
 			{
 				var row = thingy[lineNum];
 				var columns = row.split(",");
 				
-				console.log(columns[0],columns[1],columns[2], columns[3]);
+				var newLine = $('<li>'). text("Name of band : " + columns[1] + " Date of show : " + columns[3]);
+				
+				$('#localBandList').append(newLine);
 			}
 		}
 	});
