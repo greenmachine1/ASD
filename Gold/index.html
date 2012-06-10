@@ -25,7 +25,7 @@
 			<img src="pics/logo1.png" width="100%" height="120px"> 
 		</div><!--Main page pic-->	
 		
-		<!--As an experiment to test my ability of getelementbyid-->
+		<!--Main page list of all the other pages -->
 		<div data-role="listview" data-theme="b" id="face">
 			<!--internal page named #additem-->
 			<li><a href="#additem">Add your bands info here</a>
@@ -44,8 +44,8 @@
 		<div data-role="footer" data-position="fixed" data-theme="a">
 			<div data-role="navbar">
 				<ul>
-					<!-- again adding link to internal page, if this doesnt work as planned-->
-					<!-- use additem.html rel="external"-->
+					<!--adding link to internal page-->
+					
 					<li><a href="#additem" data-icon="plus">Create</a></li>
 					<li><a href="#localBands" data-icon="search">Local</a></li>
 					<li><a href="#bookies" data-icon="gear">Bookies</a></li>
@@ -99,6 +99,7 @@
   					<select name="groups" id="groups">
   						
   						<!--section is dynamically populated -->
+  						
    					</select> 
 				</div><!--genre of choice /div-->
 				
@@ -128,7 +129,7 @@
 						<label for="inst9">Other</label>
 					</fieldset>
 				
-					<!-- didnt want the other text field to be completely seperate from the checkboxes--
+					<!-- didnt want the other text field to be completely seperate from the checkboxes-->
 					<!-- so there is no divider between them-->
 					<label for="other1">If you answered other, please tell us what other equipment you are bringing.</label>
    					<input type="text" name="other1" id="other1" value=""/>
