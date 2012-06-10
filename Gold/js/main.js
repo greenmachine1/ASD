@@ -7,9 +7,6 @@
 // this beginning function has been modified to fit the jquery version
 $(function(){
 
-
-
-
 // this will be used to pull from my json file!
 // the actual json file should not have var json at the beginning of it!
 function jsonAjax()
@@ -21,7 +18,7 @@ function jsonAjax()
 		type		: 'GET',
 		dataType	: 'json',
 		success		: function(response)
-		{
+			{
 					for(var i = 0, j = response.bandInfo.length; i < j; i++)
 					{
 						var info = response.bandInfo[i];
@@ -31,7 +28,7 @@ function jsonAjax()
 							   ).appendTo('#localBandList');
 					}
 											
-		}	
+			}	
 		});
 }	
 
@@ -54,13 +51,15 @@ function xmlAjax()
 					var place = item.find("place").text();
 					var price = item.find("price").text();
 					
-// simply displaying the data :D					
-var newLi = $('<li>').text("The name of the band : " + bName + " the Genre of music : " + genre);
+					// simply displaying the data :D					
+					var newLi = $('<li>').text("The name of the band : " 
+								+ bName + " the Genre of music : " + genre);
 
-var newNewLi = $('<li>').text("Where they are playing : " + place + " price of admission : " + price);
+					var newNewLi = $('<li>').text("Where they are playing : " 
+								+ place + " price of admission : " + price);
 
-// appending both li's
-$('#localBandList').append(newLi , newNewLi);
+					// appending both li's
+					$('#localBandList').append(newLi , newNewLi);
 					
 				});	
 		}		
@@ -88,7 +87,8 @@ function csvAjax()
 				var row = thingy[lineNum];
 				var columns = row.split(",");
 				
-				var newLine = $('<li>'). text("Name of band : " + columns[1] + " Date of show : " + columns[3]);
+				var newLine = $('<li>'). text("Name of band : " 
+							  + columns[1] + " Date of show : " + columns[3]);
 				
 				$('#localBandList').append(newLine);
 			}
@@ -97,16 +97,10 @@ function csvAjax()
 }
 
 
-
-
-
-
-
-
 // function used to dynamically populate my genre drop down menu
 function makeCatagory()
 {
-	var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", "other"];
+	var bandType = ["--choose a genre--", "rock", "metal", "country", "classical", "rap", "kids", "jazz", 							"other"];
 
 	for(var i = 0; i < bandType.length; i++)
 	{
