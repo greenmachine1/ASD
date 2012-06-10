@@ -287,7 +287,7 @@ function toggleControls(n)
 			autoFillData();
 		}
 		var makeDiv = $('<div>'); 
-		makeDiv.attr('#id', "item");  
+		makeDiv.attr('id', "item");  
 		var makeList = $('<ul>');	
 		makeDiv.append(makeList);
 		$('#ending').append(makeDiv);					 															
