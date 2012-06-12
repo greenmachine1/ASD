@@ -7,37 +7,6 @@
 // this beginning function has been modified to fit the jquery version
 $(function(){
 
-
-
-// still working on making this work out.
-function checkboxes()
-{	
-	var newthing = $('.ui-checkbox');
-	
-	for(var i = 0; i < newthing.length; i++)
-	{
-		if(checked === true)
-		{
-			console.log(newthing.value);
-		}
-		console.log(newthing[i]);
-		
-	}
-}
-
-checkboxes();
-
-
-
-
-
-
-
-
-
-
-
-
 // this will be used to pull from my json file!
 // the actual json file should not have var json at the beginning of it!
 function jsonAjax()
@@ -168,73 +137,73 @@ function popBandSearch()
 // find value of selected buttons
 function getCheckBoxValue()
 {
-	if($('#inst1').checked)
+	if($('#inst1').is(":checked"))
 	{
-		instrument1Value = $('#inst1').val();
+		instrument1Value = "yes";  // $('#inst1').val();
 	}
 	else
 	{
 		instrument1Value = "No";
 	}
-	if($('#inst2').checked)
+	if($('#inst2').is(":checked"))
 	{
-		instrument2Value = $('#inst2').val();
+		instrument2Value = "yes";  //$('#inst2').val();
 	}
 	else
 	{
 		instrument2Value = "No";
 	}
-	if($('#inst3').checked)
+	if($('#inst3').is(":checked"))
 	{
-		instrument3Value = $('#inst3').val();
+		instrument3Value = "yes";
 	}
 	else
 	{
 		instrument3Value = "No";
 	}
-	if($('#inst4').checked)
+	if($('#inst4').is(":checked"))
 	{
-		instrument4Value = $('#inst4').val();
+		instrument4Value = "yes";
 	}
 	else
 	{
 		instrument4Value = "No";
 	}
-	if($('#inst5').checked)
+	if($('#inst5').is(":checked"))
 	{
-		instrument5Value = $('#inst5').val();
+		instrument5Value = "yes";
 	}
 	else
 	{
 		instrument5Value = "No";
 	}
-	if($('#inst6').checked)
+	if($('#inst6').is(":checked"))
 	{
-		instrument6Value = $('#inst6').val();
+		instrument6Value = "yes";
 	}
 	else
 	{
 		instrument6Value = "No";
 	}
-	if($('#inst7').checked)
+	if($('#inst7').is(":checked"))
 	{
-		instrument7Value = $('#inst7').val();
+		instrument7Value = "yes";
 	}
 	else
 	{
 		instrument7Value = "No";
 	}
-	if($('#inst8').checked)
+	if($('#inst8').is(":checked"))
 	{
-		instrument8Value = $('#inst8').val();
+		instrument8Value = "yes";
 	}
 	else
 	{
 		instrument8Value = "No";
 	}
-	if($('#inst9').checked)
+	if($('#inst9').is(":checked"))
 	{
-		instrument9Value = $('#inst9').val();
+		instrument9Value = "yes";
 	}
 	else
 	{
