@@ -8,12 +8,20 @@
 $(function(){
 
 
+
+// still working on making this work out.
 function checkboxes()
 {	
 	var newthing = $('.ui-checkbox');
+	
 	for(var i = 0; i < newthing.length; i++)
 	{
+		if(checked === true)
+		{
+			console.log(newthing.value);
+		}
 		console.log(newthing[i]);
+		
 	}
 }
 
