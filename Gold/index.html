@@ -16,9 +16,15 @@
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/modernizr.custom.min.js"></script>
 </head>
-	<!--thingy is-->
+
+
+	<!--Main Body-->
 <body>
-	<!-- My Page div -->
+
+
+
+	<!-- ///////////////////////////////start of Main page\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+	
 	<div data-role="page" id="home">
 	
 		<div>
@@ -27,16 +33,16 @@
 		
 		<!--Main page list of all the other pages -->
 		<div data-role="listview" data-theme="b" id="face">
-			<!--internal page named #additem-->
+			<!--my additem internal page-->
 			<li><a href="#additem">Add your bands info here</a>
 				<p> &nbsp; &nbsp; &nbsp;FILL OUT YOUR BANDS INFO HERE!</p></li>
-			<!--adding localbands internal page-->	
+			<!--my localbands internal page-->	
 			<li><a href="#localBands">Search for bands in your area</a>
 				<p> &nbsp; &nbsp; &nbsp;SEARCH FOR BANDS HERE!</p></li>	
-			<!--adding my bookies internal page-->	
+			<!--my bookies internal page-->	
 			<li><a href="#bookies">Venues sign in here</a>
 				<p> &nbsp; &nbsp; &nbsp;VENUES SIGN IN HERE!</p></li>
-			<!--added my news internal page-->	
+			<!--my news internal page-->	
 			<li><a href="#news">Check out the local feed</a>
 				<p> &nbsp; &nbsp; &nbsp;YOUR LOCAL FEED!</p></li>
 		</div><!--listview div-->
@@ -44,7 +50,7 @@
 		<div data-role="footer" data-position="fixed" data-theme="a">
 			<div data-role="navbar">
 				<ul>
-					<!--adding link to internal page-->
+					<!--adding link to internal pages-->
 					
 					<li><a href="#additem" data-icon="plus">Create</a></li>
 					<li><a href="#localBands" data-icon="search">Local</a></li>
@@ -131,7 +137,7 @@
 				
 					<!-- didnt want the other text field to be completely seperate from the checkboxes-->
 					<!-- so there is no divider between them-->
-					<label for="other1">If you answered other, please tell us what other equipment you are bringing.</label>
+					<label for="other1">If you answered other, please tell us what other equipment you are 												bringing.</label>
    					<input type="text" name="other1" id="other1" value=""/>
 				</div><!--div for checkboxes-->
 				
@@ -154,6 +160,9 @@
 			</form>
 		</div>
 		<div id="ending">
+		
+			<!--Data is populated with display data-->
+			
 		</div>		
 		
 			<div data-role="footer" data-position="fixed" data-theme="a">
@@ -173,7 +182,7 @@
 		<!-- my header div -->
 		<div data-role="header">
 			<a href="#home" data-role="button" data-theme="b">Home</a>
-		<p><h3 align="center">Search for Bands!</h3></p>
+			<p><h3 align="center">Search for Bands!</h3></p>
 		</div><!--Search for bands header div-->
 		
 		<div>
@@ -181,7 +190,7 @@
 		</div><!--Main page pic-->	
 		
 		<div data-role="content">
-			<ul data-role="listview" data-filter="true" data-filter-placeholder="Search by Genre" id="bandSearchFeed">
+			<ul data-role="listview" data-filter="true" data-filter-placeholder="Search by Genre" 								id="bandSearchFeed">
 				
 			</ul> 
 					<!-- this section will get dynamically populated-->
@@ -240,7 +249,7 @@
 		<div data-role="content">
 			<ul data-role="listview" data-filter="true" id="localBandList">
 			
-				<!--Need to redo this section, accidently deleted it!-->
+				<!--This section is Dynamically populated-->
 				
 			</ul>
 		</div><!--UL list-->
