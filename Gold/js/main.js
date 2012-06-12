@@ -7,6 +7,29 @@
 // this beginning function has been modified to fit the jquery version
 $(function(){
 
+
+function checkboxes()
+{	
+	var newthing = $('.ui-checkbox');
+	for(var i = 0; i < newthing.length; i++)
+	{
+		console.log(newthing[i]);
+	}
+}
+
+checkboxes();
+
+
+
+
+
+
+
+
+
+
+
+
 // this will be used to pull from my json file!
 // the actual json file should not have var json at the beginning of it!
 function jsonAjax()
