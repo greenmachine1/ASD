@@ -19,6 +19,8 @@ function jsonAjax()
 		dataType	: 'json',
 		success		: function(response)
 			{
+				// emptys out the #localBandList info and replaces it with this!
+				$('#localBandList').empty();
 					for(var i = 0, j = response.bandInfo.length; i < j; i++)
 					{
 						var info = response.bandInfo[i];
@@ -41,6 +43,8 @@ function xmlAjax()
 		dataType	:	'xml',
 		success		: function(response)
 		{
+			// emptys out the #localBandList info and replaces it with this!
+			$('#localBandList').empty();
 			// ok ok this works!  Stumbled upon the use of .text() to reveal the actual value!
 			// the word item has to be used in this instance, will break code without
 				$(response).find("item").each(function()
@@ -76,6 +80,8 @@ function csvAjax()
 		dataType	:	"text",  // this is the correct data type for csv
 		success		:	function(data,response)
 		{
+			// emptys out the #localBandList info and replaces it with this!
+			$('#localBandList').empty();
 			// split my data by new line
 			var thingy = data.split("\n");
 			
@@ -299,8 +305,12 @@ function toggleControls(n)
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			
+			
+			
 			// convert the string fromm local storage value back to an object by using JSON .parse
 			var obj = JSON.parse(value);
+		
+			
 			var makeSubList = $('<ul>');  
 			makeli.append(makeSubList);
 			
@@ -324,11 +334,21 @@ function toggleControls(n)
 	function getImage(catName, makeSubList)
 	{
 		//creates a ul then appends an li to it then appends an image to that
+		console.log(catName);
+		
+		var newListItem = $('<li>');
+		makeSubList.append(newListItem);
+		var newImg = $('<img>');
+		newImg.attr('src', "pics/"+catName+".png");
+		makeSubList.append(newImg);
+		
+		/*
 		var imageLi = $('<li>');  
 		$('<ul>').append(imageLi); 
-		var newImg = $('<img>');  
-		var setSrc = newImg.attr('src', "pics/"+ catName + ".png");
+		var newImg = $('<img src="pics/"'+catName+'".png">');  
+		//var setSrc = newImg.attr('src', "pics/"+ catName + ".png");
 		imageLi.append(newImg);
+		*/
 	}
 	
 	// autopopulate the local storage
