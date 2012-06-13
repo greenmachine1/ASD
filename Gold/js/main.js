@@ -3,12 +3,12 @@
 // Date: 05/30/2012
 // project: ASD
 
-//waiting until the DOM is ready
-// this beginning function has been modified to fit the jquery version
+//	waiting until the DOM is ready
+//  this beginning function has been modified to fit the jquery version
 $(function(){
 
-// this will be used to pull from my json file!
-// the actual json file should not have var json at the beginning of it!
+// 	this will be used to pull from my json file!
+// 	the actual json file should not have var json at the beginning of it!
 function jsonAjax()
 {
 	
@@ -73,23 +73,22 @@ function csvAjax()
 	$.ajax({
 		url			:	'xhr/data.csv',
 		type		:	'GET',
-		dataType	:	"text",
+		dataType	:	"text",  // this is the correct data type for csv
 		success		:	function(data,response)
 		{
-			// my split function now works now that I have the correct dataType
-			
-			
+			// split my data by new line
 			var thingy = data.split("\n");
-			
 			
 			for (var lineNum = 0; lineNum < thingy.length; lineNum++)
 			{
+				// split the lines by comma
 				var row = thingy[lineNum];
 				var columns = row.split(",");
 				
 				var newLine = $('<li>'). text("Name of band : " 
 							  + columns[1] + " Date of show : " + columns[3]);
 				
+				// appending all this to my #localBandList
 				$('#localBandList').append(newLine);
 			}
 		}
@@ -139,7 +138,7 @@ function getCheckBoxValue()
 {
 	if($('#inst1').is(":checked"))
 	{
-		instrument1Value = "yes";  // $('#inst1').val();
+		instrument1Value = "yes"; 
 	}
 	else
 	{
@@ -147,7 +146,7 @@ function getCheckBoxValue()
 	}
 	if($('#inst2').is(":checked"))
 	{
-		instrument2Value = "yes";  //$('#inst2').val();
+		instrument2Value = "yes"; 
 	}
 	else
 	{
@@ -305,7 +304,7 @@ function toggleControls(n)
 			var makeSubList = $('<ul>');  
 			makeli.append(makeSubList);
 			
-			getImage(obj.groups[1], makeSubList); // gets an image for our form, passes in makeSubList
+			getImage(obj.groups[1], makeSubList); // gets an image for our form, passes in makeSubList 															  // obj.groups[1]
 			for(var n in obj)	
 			{
 				var makeSubli = $('<li>'); ;
@@ -314,18 +313,20 @@ function toggleControls(n)
 				makeSubli.html(optSubText); 							
 				makeSubList.append(linksLi);
 			}
-			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
+			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each 															 // item in local storage
+			
+			
 		}	
+		
 	}
 	
 	// get the image for the right catagory
 	function getImage(catName, makeSubList)
 	{
 		//creates a ul then appends an li to it then appends an image to that
-		
-		var imageLi = $('<li>');  //document.createElement('li');
-		$('<ul>').append(imageLi); // makeSubList.appendChild(imageLi);
-		var newImg = $('<img>');  //document.createElement('img');
+		var imageLi = $('<li>');  
+		$('<ul>').append(imageLi); 
+		var newImg = $('<img>');  
 		var setSrc = newImg.attr('src', "pics/"+ catName + ".png");
 		imageLi.append(newImg);
 	}
@@ -347,24 +348,24 @@ function toggleControls(n)
 	function makeItemLinks(key, linksLi)
 	// add edit single item link
 	{
-		var editLink = $('<a>'); //document.createElement('a');
+		var editLink = $('<a>'); 
 		editLink.href = "#";
 		editLink.key = key;	
 		var editText = "Edit Info";
-		editLink.bind("click", editItem); //addEventListener("click", editItem);
-		$('#editLink').html(editText);    // editLink.innerHTML = editText;
+		editLink.bind("click", editItem); 
+		$('#editLink').html(editText);    
 		linksLi.append(editLink);
 		
 		// adds a seperator between links
-		var breakTag = $('<br>');  //document.createElement('br');
+		var breakTag = $('<br>');  
 		linksLi.append(breakTag);
 		
-		var deleteLink = $('<a>'); //document.createElement('a');
+		var deleteLink = $('<a>'); 
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Info";
 		deleteLink.bind("click", deleteItem);
-		$('#deleteLink').html(deleteText);			// deleteLink.innerHTML = deleteText;
+		$('#deleteLink').html(deleteText);			
 		linksLi.append(deleteLink);
 	}
 	
@@ -378,95 +379,96 @@ function toggleControls(n)
 		toggleControls("off");
 		
 		// populate the form fields with the current localStorage values.
-		$('#fname').val(item.fname[1]); // .value = item.fname[1];
+		$('#fname').val(item.fname[1]); 
 		$('#bname').val(item.bname[1]);
 		$('#email').val(item.email[1]);
 		$('#groups').val(item.groups[1]);
 		$('#startdate').val(item.startdate[1]);
-	if($('#inst1').checked)
-	{
-		instrument1Value = $('#inst1').val();
-	}
-	else
-	{
-		instrument1Value = "No";
-	}
-	if($('#inst2').checked)
-	{
-		instrument2Value = $('#inst2').val();
-	}
-	else
-	{
-		instrument2Value = "No";
-	}
-	if($('#inst3').checked)
-	{
-		instrument3Value = $('#inst3').val();
-	}
-	else
-	{
-		instrument3Value = "No";
-	}
-	if($('#inst4').checked)
-	{
-		instrument4Value = $('#inst4').val();
-	}
-	else
-	{
-		instrument4Value = "No";
-	}
-	if($('#inst5').checked)
-	{
-		instrument5Value = $('#inst5').val();
-	}
-	else
-	{
-		instrument5Value = "No";
-	}
-	if($('#inst6').checked)
-	{
-		instrument6Value = $('#inst6').val();
-	}
-	else
-	{
-		instrument6Value = "No";
-	}
-	if($('#inst7').checked)
-	{
-		instrument7Value = $('#inst7').val();
-	}
-	else
-	{
-		instrument7Value = "No";
-	}
-	if($('#inst8').checked)
-	{
-		instrument8Value = $('#inst8').val();
-	}
-	else
-	{
-		instrument8Value = "No";
-	}
-	if($('#inst9').checked)
-	{
-		instrument9Value = $('#inst9').val();
-	}
-	else
-	{
-		instrument9Value = "No";
-	} 
+	
+			if($('#inst1').is(":checked"))
+			{
+				instrument1Value = "yes";  // $('#inst1').val();
+			}
+			else
+			{
+				instrument1Value = "No";
+			}
+			if($('#inst2').is(":checked"))
+			{
+				instrument2Value = "yes";  //$('#inst2').val();
+			}
+			else
+			{
+				instrument2Value = "No";
+			}
+			if($('#inst3').is(":checked"))
+			{
+				instrument3Value = "yes";
+			}
+			else
+			{
+				instrument3Value = "No";
+			}
+			if($('#inst4').is(":checked"))
+			{
+				instrument4Value = "yes";
+			}
+			else
+			{
+				instrument4Value = "No";
+			}
+			if($('#inst5').is(":checked"))
+			{
+				instrument5Value = "yes";
+			}
+			else
+			{
+				instrument5Value = "No";
+			}
+			if($('#inst6').is(":checked"))
+			{
+				instrument6Value = "yes";
+			}
+			else
+			{
+				instrument6Value = "No";
+			}
+			if($('#inst7').is(":checked"))
+			{
+				instrument7Value = "yes";
+			}
+			else
+			{
+				instrument7Value = "No";
+			}
+			if($('#inst8').is(":checked"))
+			{
+				instrument8Value = "yes";
+			}
+			else
+			{
+				instrument8Value = "No";
+			}
+			if($('#inst9').is(":checked"))
+			{
+				instrument9Value = "yes";
+			}
+			else
+			{
+				instrument9Value = "No";
+			} 
 		
 		$('#other1').val(item.other1[1]);
 		$('#tickets').val(item.tickets[1]);
 		
 		// remove the initial listener from the input save conctact
-		submit.unbind("click", storeData);  // changed save to submit removeEventListener("click", 																 //storeData);
-		// change submit button value to edit button
+		submit.unbind("click", storeData);   
+									
 		$('#submit').val("Edit Contact");
 		var editSubmit = $('#submit');
 		// save key value established in this function as a property of the edit submit event
 		// so we can use that value when we save the data we edited.
-		editSubmit.bind("click", validate); //addEventListener("click", validate);
+		editSubmit.bind("click", validate); 
 		editSubmit.key = this.key;
 	}
 	
@@ -577,6 +579,8 @@ function toggleControls(n)
 	
 	// calling on the makeCatagory function
 	makeCatagory();
+	
+	// calling the popBandSearch function
 	popBandSearch();
 	
 	// buttons for my json,xml, and my csv files
