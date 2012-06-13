@@ -35,6 +35,7 @@ function jsonAjax()
 }	
 
 // this is going to be pulling from my xml file!
+/* commenting out both my xml and csv ajax calls because we dont need them anymore!
 function xmlAjax()
 {
 	$.ajax({
@@ -100,7 +101,7 @@ function csvAjax()
 		}
 	});
 }
-
+*/
 
 // function used to dynamically populate my genre drop down menu
 function makeCatagory()
@@ -595,10 +596,11 @@ function toggleControls(n)
 	// buttons for my json,xml, and my csv files
 	$('#jsonButton').bind('click', jsonAjax);
 	
+	/* We no longer need these buttons since we wont be calling on our xml or csv ajax calls
 	$('#xmlButton').bind('click', xmlAjax);
 	
 	$('#otherButton').bind('click', csvAjax);
-	
+	*/
 	
 	// set link and submit click events
 	// made all my links jquery links insead of normal javascript
