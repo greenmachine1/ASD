@@ -120,9 +120,9 @@ function popBandSearch()
 {	
 	for(var key in json)
 	{
-		// once again making my code more compact!
+		//setting up an li then filling it with band names from my json file
 		var setBandListLi = $('<li>').text(json[key].bname[1]);  
-		$('#bandSearch').append(setBandListLi);  
+		$('#bandSearchFeed').append(setBandListLi);  
 	}
 }
 		
@@ -304,17 +304,15 @@ function toggleControls(n)
 			makeList.append(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			
-			
-			
+		
 			// convert the string fromm local storage value back to an object by using JSON .parse
 			var obj = JSON.parse(value);
 		
-			
 			var makeSubList = $('<ul>');  
 			makeli.append(makeSubList);
 			
-			getImage(obj.groups[1], makeSubList); // gets an image for our form, passes in makeSubList 															  // obj.groups[1]
+			// gets an image from our pics file and displays it on top of our json data
+			getImage(obj.groups[1], makeSubList);  															 
 			for(var n in obj)	
 			{
 				var makeSubli = $('<li>'); ;
@@ -333,16 +331,12 @@ function toggleControls(n)
 	// get the image for the right catagory
 	function getImage(catName, makeSubList)
 	{
-		//creates a ul then appends an li to it then appends an image to that
-		console.log(catName);
-		
 		// works to dynamically populate my images catagory!
 		var newListItem = $('<li>');
 		makeSubList.append(newListItem);
 		var newImg = $('<img>');
 		newImg.attr('src', "pics/"+catName+".png");
-		makeSubList.append(newImg);
-		
+		makeSubList.append(newImg);	
 	}
 	
 	// autopopulate the local storage
@@ -362,24 +356,21 @@ function toggleControls(n)
 	function makeItemLinks(key, linksLi)
 	// add edit single item link
 	{
-		var editLink = $('<a>'); 
-		editLink.href = "#";
-		editLink.key = key;	
-		var editText = "Edit Info";
-		editLink.bind("click", editItem); 
-		$('#editLink').html(editText);    
+	
+		var editLink = $("<a href='#' id='"+key+"'>Edit Info</a>");
+		
+		editLink.bind("click", editItem);
+		$('#editLink').html("Edit Info");    
 		linksLi.append(editLink);
 		
 		// adds a seperator between links
 		var breakTag = $('<br>');  
 		linksLi.append(breakTag);
 		
-		var deleteLink = $('<a>'); 
-		deleteLink.href = "#";
-		deleteLink.key = key;
-		var deleteText = "Delete Info";
+		var deleteLink = $("<a href='#' id'"+key+"'>Delete Info</a>"); 
+	
 		deleteLink.bind("click", deleteItem);
-		$('#deleteLink').html(deleteText);			
+		$('#deleteLink').html("delete info");			
 		linksLi.append(deleteLink);
 	}
 	
@@ -388,20 +379,21 @@ function toggleControls(n)
 		// grab data from our local storage.
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
+		console.log("this is my key: "+this.value);
 		
 		// show the form
 		toggleControls("off");
 		
 		// populate the form fields with the current localStorage values.
-		$('#fname').val(item.fname[1]); 
-		$('#bname').val(item.bname[1]);
-		$('#email').val(item.email[1]);
-		$('#groups').val(item.groups[1]);
-		$('#startdate').val(item.startdate[1]);
+		$('#fname').val(); 
+		$('#bname').val(); 
+		$('#email').val(); 
+		$('#groups').val(); 
+		$('#startdate').val(); 
 	
 			if($('#inst1').is(":checked"))
 			{
-				instrument1Value = "yes";  // $('#inst1').val();
+				instrument1Value = "yes";  
 			}
 			else
 			{
@@ -409,7 +401,7 @@ function toggleControls(n)
 			}
 			if($('#inst2').is(":checked"))
 			{
-				instrument2Value = "yes";  //$('#inst2').val();
+				instrument2Value = "yes";  
 			}
 			else
 			{
@@ -472,22 +464,25 @@ function toggleControls(n)
 				instrument9Value = "No";
 			} 
 		
-		$('#other1').val(item.other1[1]);
-		$('#tickets').val(item.tickets[1]);
+		$('#other1').val(); 
+		$('#tickets').val(); 
 		
-		// remove the initial listener from the input save conctact
-		submit.unbind("click", storeData);   
-									
-		$('#submit').val("Edit Contact");
+		
 		var editSubmit = $('#submit');
+		// remove the initial listener from the input save conctact
+		editSubmit.unbind("click", storeData);   
+									
+		editSubmit.val("Edit Contact");
+		
 		// save key value established in this function as a property of the edit submit event
 		// so we can use that value when we save the data we edited.
-		editSubmit.bind("click", validate); 
-		editSubmit.key = this.key;
+		editSubmit.bind('click', validate); 
+		editSubmit.key = this.value;
 	}
 	
 	function deleteItem()
 	{
+		
 		var ask = confirm("Are you sure you want to delete this data?");
 		if(ask)
 		{
