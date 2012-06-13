@@ -336,19 +336,13 @@ function toggleControls(n)
 		//creates a ul then appends an li to it then appends an image to that
 		console.log(catName);
 		
+		// works to dynamically populate my images catagory!
 		var newListItem = $('<li>');
 		makeSubList.append(newListItem);
 		var newImg = $('<img>');
 		newImg.attr('src', "pics/"+catName+".png");
 		makeSubList.append(newImg);
 		
-		/*
-		var imageLi = $('<li>');  
-		$('<ul>').append(imageLi); 
-		var newImg = $('<img src="pics/"'+catName+'".png">');  
-		//var setSrc = newImg.attr('src', "pics/"+ catName + ".png");
-		imageLi.append(newImg);
-		*/
 	}
 	
 	// autopopulate the local storage
