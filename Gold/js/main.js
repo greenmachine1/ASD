@@ -13,25 +13,26 @@ function jsonAjax()
 {
 	
 
-	$.ajax({
-		url			: 'xhr/data.json',
-		type		: 'GET',
-		dataType	: 'json',
-		success		: function(response)
-			{
-				// emptys out the #localBandList info and replaces it with this!
-				$('#localBandList').empty();
-					for(var i = 0, j = response.bandInfo.length; i < j; i++)
-					{
-						var info = response.bandInfo[i];
-						$('' + '<li>' + "name of person : " +info.fname + '</li>' +
-							   '<li>' + "name of band : " +info.bname + '</li>'+
-							   '<li>' + "genre of group : " +info.groups + '</li>'
-							   ).appendTo('#localBandList');
-					}
-											
-			}	
-		});
+$.ajax({
+		"url": "_view/Bands",
+		"dataType": "json",
+		"success": function(data){
+			$.each(data.rows,function(index, band){
+				
+				var name = band.value.name;
+				var bandName = band.value.band;
+				var genre = band.value.genre;
+				
+				$('#localBandList').append(
+						$('<li>').append(
+								$('<a>').attr("href", "#")
+								.text(name)
+							)
+						);
+			});
+			$('#localBandList').listview('refresh');
+		}
+	});
 }	
 
 // this is going to be pulling from my xml file!
