@@ -5,11 +5,115 @@
 
 //	waiting until the DOM is ready
 //  this beginning function has been modified to fit the jquery version
-$(function(){
 
+// function used to split the url to retrieve the id name :D
+var urlVars = function(urlData){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	// splitting the url first by the ? symbol then the &
+	// urlParts [1] is the second half of the split while
+	// urlParts [0] is the first half.
+	
+	//split again at the & symbol
+	var urlPairs = urlParts[1].split('&');
+	var urlValues = {};
+	for(var pair in urlPairs){
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	return urlValues;
+};
+
+// When passing the data from the #news page to this newBandPage, upon loading, do this!
+$('#newBandPage').live("pageshow", function(){
+	var newBandPage = urlVars()["newBandPage"];
+	//console.log(newBandPage);
+	$.couch.db("gigbag").view("plugin/Bands", {
+		key: newBandPage,
+	})
+	
+	// works to retreive the object!
+	$.couch.db("gigbag").openDoc("Band:"+ newBandPage, {
+		success: function(data) {
+			console.log(data);
+			var bandName = data.bname[1];
+			var nameOfPerson = data.fname[1];
+			var genre = data.groups[1];
+			var email = data.email[1];
+			console.log(bandName + " " + nameOfPerson + " " + genre + " " + email);
+			
+	},
+		error: function(status){
+			console.log(status);
+	}
+	})
+});
+
+
+// this function upon loading of the #news page retrieves the id of all the objects
+$('#news').live("pageshow", function(){
+	$.couch.db("gigbag").view("plugin/Bands", {
+		success:function(data){
+			$('#localBandList').empty();
+			$.each(data.rows, function(indexm,value){
+				var item = (value.value || value.doc);
+				$('#localBandList').append(
+						$('<li>').append(
+								$('<a>')
+								.attr("href", "newBandPage.html?newBandPage=" + item.band)
+								.text(item.band)
+						)
+				);
+			});
+			$('#localBandList').listview('refresh');
+		}
+		
+	});
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*$(function(){
 // 	this will be used to pull from my json file!
 // 	the actual json file should not have var json at the beginning of it!
-function jsonAjax()
+/*function jsonAjax()
 {
 	
 // calling on ajax to retrieve my json info
@@ -23,21 +127,24 @@ $.ajax({
 				var name = band.value.name;
 				var bandName = band.value.band;
 				var genre = band.value.genre;
+				var email = band.value.email;
 				
 				
 				$('#localBandList').append(
 						$('<li>').append(
 								$('<a>').attr("href", "#")
-								.text(name +" "+ bandName) 
+								.text(name +" "+ bandName +" "+genre + " "+index+
+								" "+email) 
 							)
+						
 						);
 			});
 			$('#localBandList').listview('refresh');
 		}
 	});
 }	
-
-
+*/
+/*
 // function used to dynamically populate my genre drop down menu
 function makeCatagory()
 {
@@ -473,12 +580,7 @@ function toggleControls(n)
 		var messageArry = [];
 		
 		// name validation
-		/*if(getfname.val() === "")
-		{
-			var fNameError = "Please enter in your name";
-			getfname.css({'border': "1px", "color": "red"});
-			messageArry.push(fNameError);
-		} */
+		
 		
 		// band validation
 		if(getbname.val() === "")
@@ -523,10 +625,10 @@ function toggleControls(n)
 	
 	// calling the popBandSearch function
 	popBandSearch();
-	
+	*/
 	// buttons for my json,xml, and my csv files
-	$('#jsonButton').bind('click', jsonAjax);
-	
+//	$('#jsonButton').bind('click', jsonAjax);
+	/*
 	// set link and submit click events
 	// made all my links jquery links insead of normal javascript
 	// shows data function
@@ -539,5 +641,6 @@ function toggleControls(n)
 	
 	// clear function
 	$('#reset').bind('click', clearLocal);
-});
+	*/
+//});
 
