@@ -43,8 +43,8 @@
 			<li><a href="#bookies">Venues sign in here</a>
 				<p> &nbsp; &nbsp; &nbsp;VENUES SIGN IN HERE!</p></li>
 			<!--my news internal page-->	
-			<li><a href="#news">Check out the local feed</a>
-				<p> &nbsp; &nbsp; &nbsp;YOUR LOCAL FEED!</p></li>
+			<li><a href="#news">New and Improved Add Band form!</a>
+				<p> &nbsp; &nbsp; &nbsp;Click here to get started!</p></li>
 		</div><!--listview div-->
 
 		<div data-role="footer" data-position="fixed" data-theme="a">
@@ -246,20 +246,48 @@
 			<img src="logo1.png" width="100%" height="120px"> 
 		</div><!--Main page pic-->	
 		
-		<div data-role="content">
-			<ul data-role="listview" data-filter="true" id="localBandList">
-			
-				<!--This section is Dynamically populated-->
+	<div data-role="content">
+		<div>
+			<p align="center"<h1>Enter your bands info here</h1></p>
+		</div>
+		<div data-role="fieldcontain" data-theme="b" id="information">
+					<!--user info -->
+					<label for="nameFirst">Your Name Please:</label>
+					<input type="text" name="nameFirst" id="nameFirst" data-theme="b"/>
 				
-			</ul>
-		</div><!--UL list-->
-		
-		<div data-role="fieldcontain">
-					<input type='button' value='json' id='jsonButton' data-theme="b" />
-					<input type='button' value='xml' id='xmlButton' data-theme="b" />
-					<input type='button' value='csv' id='otherButton' data-theme="b"/>
-		</div><!--div for my json, xml, and other buttons-->
-		
+					<label for="bandNameFirst">Your Bands name Please:</label>
+					<input type="text" name="bandNameFirst" id="bandNameFirst" data-theme="b"/>
+				
+					<label for="genreFirst">Your Type of Genre Please:</label>
+					<input type="text" name="genreFirst" id="genreFirst" data-theme="b"/>
+					
+					<label for="emailFirst">Your Email Please:</label>
+					<input type="text" name="emailFirst" id="emailFirst" data-theme="b"/>
+			<div>
+				<br></br>
+			</div>
+				<!-- used as a divider -->
+			<div>
+				<input type="button" value="Save Info" id="saveInfoButton" data-theme="b"/>
+			</div>
+				<!-- used as a divider -->
+			<div>
+				<br></br>
+			</div>
+			
+			<div>
+				<ul data-role="listview">
+					<li><a href="#">Local BandListing</a>
+						<ul data-role="listview" data-filter="true" id="localBandList">
+				
+							<!--This section is Dynamically populated-->
+							
+						</ul>
+					</li>	
+				</ul>
+			</div>
+		</div>
+	</div>	
 		<div data-role="footer" data-position="fixed" data-theme="a">
 			<div data-role="navbar">
 				<ul>
@@ -270,13 +298,15 @@
 				</ul>	
 			</div><!--navbar-->
 		</div><!--footer-->
+		
 	</div><!--closing div for my news page-->
 		
 		<!-- JavaScript under here -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>">
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script type="text/javascript" src="jquery.couch.js"></script>
 	<script src="json.js"></script>	
 	<script src="main.js"></script>	
 	
